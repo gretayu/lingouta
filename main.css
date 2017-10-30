@@ -274,10 +274,12 @@ div.header.container {
 	}
 
 	.logo a {
+		font-size: 20px;
 		margin: 2px 0 0;
 	}
 
 	.me_hd a {
+		font-size: 20px;
 		margin: 2px 0 0;
 	}
 
