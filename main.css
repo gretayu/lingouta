@@ -285,6 +285,10 @@ div.header.container {
     padding: 5px;
 	}
 
+	h1{
+		font-size: 14px;
+	}
+
 	#team> div {
 	display: none;
 	}
