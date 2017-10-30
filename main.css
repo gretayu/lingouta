@@ -53,7 +53,8 @@ h3 {
 
 .container {
 	display: flex;
-	align-item: baseline;
+	align-items: baseline;
+	justify-content: space-between;
 }
 
 div.header.container {
@@ -95,6 +96,8 @@ div.header.container {
 	padding: 0;
 	list-style: none;
 	clear: both;
+	display: flex;
+	justify-content: flex-start;
 }
 
 
@@ -109,7 +112,6 @@ div.header.container {
 }
 
 .menuleft {
-	width: 50%;
 	float: left;
 	position: relative;
 	min-height: 1px;
@@ -123,9 +125,10 @@ div.header.container {
 	float: right;
 	position: relative;
 	min-height: 1px;
+	margin-left:-15px;
 	padding-right: 15px;
 	padding-left: 15px;
-	display: block;
+
 }
 
 .mainmenu {
