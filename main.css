@@ -1,0 +1,308 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: "Noto Sans TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+	padding: 0;
+}
+
+html {
+	margin:0;
+	padding:0;
+	width: 100vw;
+}
+
+body {
+	margin: 0;
+	background: rgba(182, 182, 182, 1);
+	color: rgba(53, 53, 53, 1);
+	text-rendering: optimizeLegibility;
+	width: 100vw;
+}
+
+a {
+	color: rgba(53, 53, 53, 1);
+}
+
+a:hover, a:focus {
+	color: #fff;
+}
+
+h1 {
+	color: #fff;
+	font-weight: normal;
+}
+
+h3 {
+	color: #eef;
+	font-weight: lighter;
+}
+
+#header{
+    background: rgba(10, 10, 10, 0.9);
+    border-bottom: 2px solid;
+	border-bottom-color: rgba(20, 20, 20, 0.4);
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 120%;
+    z-index: 99999;
+    height: 30px;
+    display: block;
+
+}
+
+.container {
+	display: flex;
+	align-item: baseline;
+}
+
+div.header.container {
+	width: 100vw;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	clear: both;
+}
+
+.logo a {
+	font-size: 26px;
+	color: #fff;
+	line-height: 26px;
+	margin: 4px 0 0;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.me_hd a {
+	font-size: 20px;
+	color: #fff;
+	line-height: 26px;
+	margin: 4px 0 0;
+	text-decoration: none;
+}
+
+.logo a:hover {
+	color: rgba(225, 200, 100, 1);
+}
+
+.me_hd a:hover {
+	color: rgba(225, 200, 100, 1);
+}
+
+.nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	clear: both;
+}
+
+
+.nav > li {
+    position: relative;
+    display: inline;
+}
+
+.nav > li > a {
+    position: relative;
+    padding: 10px 15px;
+}
+
+.menuleft {
+	width: 50%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	display: block;
+}
+
+.menuright {
+	width: 50%;
+	float: right;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	display: block;
+}
+
+.mainmenu {
+	position:relative;
+	margin-left:-15px;
+}
+
+.active a{
+	color: tomato;
+}
+/*section*/
+.full-section {
+    height: 100vh;
+    position: relative;
+    background-size: contain;
+    background-position: center;
+    margin-top: 40px;
+}
+
+/*****about******/
+
+#intro {
+	display: none;
+}
+
+
+.mark {
+	clolr: "tomato";
+}
+
+#info {
+	flex-wrap: wrap;
+	padding: 15px
+}
+
+#info > div {
+	width: 28vw;
+	height: 40vh;
+	min-height: 300px;
+	min-width: 200px;
+	text-align: left;
+}
+
+
+
+#info > div > a {
+	color: rgba(53, 53, 53, 1);
+	position: relative;
+    top: 95%;
+    transform: translate(-50%, -50%);
+}
+
+
+.indiv > div > h2:hover {
+	color: #ddd;
+}
+
+
+.indiv {
+	margin: 10px 10px;
+}
+
+.square {
+	width: 200px;
+	height: 200px;
+}
+
+#team {
+	background: url('team.jpg');
+	background-size: contain;
+	width: 100vw;
+	height: 56vw;
+	margin: 0;
+	padding: 0;
+	top: 50px;
+	left: 0;
+}
+
+#team > div {
+	margin: 20px 5vw;
+	padding: 10px;
+	position: absolute;
+	top: 200px;
+	background-color: rgba(10,10,10,0.4);
+	text-align: center;
+	border-top: 5px solid rgba(0,0,0,0.2);
+	border-bottom: 5px solid rgba(0,0,0,0.3);
+	border-radius: 10px;
+
+}
+
+#tien{
+	background: url('tien.jpeg');
+}
+#wei{
+	background: url('wei.jpeg');
+}
+#chen{
+	background: url('chen.jpeg');
+}
+#lin{
+	background: url('lin.jpeg');
+}
+#yu{
+	background: url('yu.jpeg');
+}
+
+#tien:hover {
+	background: url('tien.jpeg') 0 -200px;
+}
+#wei:hover {
+	background: url('wei.jpeg') 0 -200px;
+}
+#chen:hover {
+	background: url('chen.jpeg') 0 -200px;
+}
+#lin:hover {
+	background: url('lin.jpeg') 0 -200px;
+}
+#yu:hover {
+	background: url('yu.jpeg') 0 -200px;
+}
+
+
+.square ul{
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 0;
+}
+
+/****media*****/
+@media (max-width: 768px) {
+	#header{
+		height: 20px;
+		font-size: 20px;
+		padding: 5px 0 15px;
+
+	}
+	div.header.container {
+		padding-right: 5px;
+		padding-left: 5px;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.logo a {
+		margin: 2px 0 0;
+	}
+
+	.me_hd a {
+		margin: 2px 0 0;
+	}
+
+	.nav > li > a {
+    padding: 5px;
+	}
+
+	#team> div {
+	display: none;
+	}
+
+	#intro {
+	display: block;
+	margin: 40px 5vw 10px 5vw; 
+	max-width: 100vw;
+	border-top: 2px solid grey;
+	border-bottom: 2px solid grey;
+	border-radius: 10px;
+	padding: 10px 10px;
+	}
+
+	#info > div {
+		padding: 10px;
+		width: 35vw;
+		height: 40vh;
+	}
+}
+
