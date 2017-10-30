@@ -241,18 +241,28 @@ div.header.container {
 
 #tien{
 	background: url('tien.jpeg');
+	border: 1px solid rgb(150, 150, 150);
+	border-radius: 2px;
 }
 #wei{
 	background: url('wei.jpeg');
+	border: 1px solid rgb(150, 150, 150);
+	border-radius: 2px;
 }
 #chen{
 	background: url('chen.jpeg');
+	border: 1px solid rgb(150, 150, 150);
+	border-radius: 2px;
 }
 #lin{
 	background: url('lin.jpeg');
+	border: 1px solid rgb(150, 150, 150);
+	border-radius: 2px;
 }
 #yu{
 	background: url('yu.jpeg');
+	border: 1px solid rgb(150, 150, 150);
+	border-radius: 2px;
 }
 
 #tien:hover {
