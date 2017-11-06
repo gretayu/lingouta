@@ -11,7 +11,7 @@
 }
 
 .fillin div{
-	margin: 5px 0;
+	margin: 3px 0;
 	padding: 0 0 5px 5px;
 }
 
@@ -31,11 +31,6 @@
 .fillin button {
 	float: right;
 }
-@media all and (max-width: 645px) {
-	.fillin {
-		width: 90%;
-	}
-}
 
 .form .name {
 	display: flex;
@@ -50,10 +45,40 @@
 	margin: 0;
 }
 
+.form .name > div > input {
+	margin: 1px 0;
+}
+
 
 .form label {
 	margin: 5px;
 	margin-top: 0; 
 	padding: 3px;
 	padding-top: 0;
+}
+
+@media all and (max-width: 645px) {
+	.fillin {
+		width: 90%;
+	}
+	.fillin button {
+	background: lightgray;
+	}
+	.textCenterWhenSmall {
+		text-align: center;
+	}
+	.field {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form label {
+		min-width: 78px;
+		margin: 2px 0;
+		padding: 2px 0;
+	}
+
+	.form .name >div {
+			width: 100%;
+	}
 }
