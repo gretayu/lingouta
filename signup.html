@@ -43,10 +43,10 @@
 								<label>姓名</label>
 								<div class="two fields">
 									<div class="field">
-										<input type="text" name="shipping[first-name]" placeholder="First Name">
+										<input type="text" name="first-name" placeholder="First Name">
 									</div>
 									<div class="field">
-										<input type="text" name="shipping[last-name]" placeholder="Last Name">
+										<input type="text" name="last-name" placeholder="Last Name">
 									</div>
 								</div>
 							</div>
@@ -56,12 +56,13 @@
 							</div>
 							<div class="field">
 								<label>密碼</label>
-								<input type="text" name="pwd1" placeholder="密碼 , 至少8個字母">
+								<input type="password" name="pwd1" placeholder="密碼 , 至少8個字母">
 							</div>
 							<div class="field">
 								<label>確認密碼</label>
-								<input type="text" name="pwd2" placeholder="請再輸入一次密碼">
+								<input type="password" name="pwd2" placeholder="請再輸入一次密碼">
 							</div>
+							<div id="message"></div><!--用來顯示兩次輸入的密碼是否相同-->
 							<div class="field">
 								<label>聯絡信箱</label>
 								<input type="text" name="email" placeholder="聯絡信箱">
