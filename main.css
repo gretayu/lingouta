@@ -500,10 +500,11 @@ h4{
 }
 
 .ui-btn {
-	border-color: white;
+	border-color: rgba(170, 226, 247, 0.5);
 	color: #042A3B;
-	background: #F7EFDF;
+	background:rgba(170, 226, 247, 0.72);
 }
+
 
 .contact-btn {
 	padding: 3px;
