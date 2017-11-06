@@ -141,6 +141,35 @@ div.header.container {
     margin-top: 40px;
 }
 
+/****login*****/
+.row{
+	height: 70%;
+}
+.row2{
+	height: 15%;
+}
+#login{
+	font-size: 20px;
+	padding: 20px;
+    text-align: center;
+}
+#sign{
+	padding: 5px;
+    text-align: center;
+}
+#left{
+    padding-right: 20px;
+	width: 30vw;
+}
+#right{
+	padding-left: 20px;
+}
+#signtext{
+	text-align: center;
+}
+.btn{
+	text-align: center;
+}
 
 /****media*****/
 @media (max-width: 900px) {
@@ -170,33 +199,14 @@ div.header.container {
 	.nav > li > a {
     padding: 5px;
 	}
-}
-
-/****login*****/
-.row{
-	height: 70%;
-}
-.row2{
-	height: 15%;
-}
-#login{
-	font-size: 20px;
-	padding: 20px;
-    text-align: center;
-}
-#sign{
-	padding: 5px;
-    text-align: center;
-}
-#left{
+	#left{
     padding-right: 20px;
+	width: 50vw;
+	}
 }
-#right{
-	padding-left: 20px;
-}
-#signtext{
-	text-align: center;
-}
-.btn{
-	text-align: center;
+@media (max-width: 350px) {
+	#left{
+    padding-right: 20px;
+	width: 70vw;
+	}
 }

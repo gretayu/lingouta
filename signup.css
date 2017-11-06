@@ -141,6 +141,33 @@ div.header.container {
     margin-top: 40px;
 }
 
+/****signup*****/
+.row{
+	margin: 10px;
+	height: 70%;
+}
+#login{
+	font-size: 20px;
+	padding: 20px;
+    text-align: center;
+}
+#sign{
+	padding: 5px;
+    text-align: center;
+}
+#left{
+    padding-right: 20px;
+	width: 30vw;
+}
+#right{
+	padding-left: 20px;
+}
+#signtext{
+	text-align: center;
+}
+.btn{
+	text-align: center;
+}
 
 /****media*****/
 @media (max-width: 900px) {
@@ -170,31 +197,18 @@ div.header.container {
 	.nav > li > a {
     padding: 5px;
 	}
+	
+	#left{
+    padding-right: 20px;
+	width: 55vw;
+	}
+	
+}
+@media (max-width: 350px) {
+	#left{
+    padding-right: 20px;
+	width: 75vw;
+	}
 }
 
-/****login*****/
-.row{
-	margin: 10px;
-	height: 70%;
-}
-#login{
-	font-size: 20px;
-	padding: 20px;
-    text-align: center;
-}
-#sign{
-	padding: 5px;
-    text-align: center;
-}
-#left{
-    padding-right: 20px;
-}
-#right{
-	padding-left: 20px;
-}
-#signtext{
-	text-align: center;
-}
-.btn{
-	text-align: center;
-}
+
