@@ -2,60 +2,71 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Lιngouτa - 風水寶位競價網</title>
-		<meta name="viewport" content="initial-scale=1.0">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
+		<link rel="stylesheet" href="main.css" />
 		<link rel="stylesheet" href="login.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
-		<link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
+		<script type="text/javascript">
+			$(function(){
+				$("#data-toggle-menu").click(function(){
+				  $("#overlay-nav-menu").toggleClass('is-open');
+				});
+			});
+		</script>
 	</head>
-	<body>
-		<header id="header">
-			<div class="container">
-				<div class="menuleft">
-					<div class="logo"><a href="https://gretayu.github.io/lingouta/lingouta.html" >Lιngouτa</a>
-					</div>
-				</div>
-				
-				<div class="menuright">
-					<div class="me_hd">
-						<ul class="nav">
-						<li><a href="#">幹啥</a>
-						</li>
 
-						<li class="active"><a href="https://gretayu.github.io/lingouta/about.html" >關於我們</a></li>
-
-						</ul>
-					</div>
-				</div>
+	<body class="light">
+		<div class="row nav-bar">
+			<div class="col-3 brand-column">	
+				<a class="nav-brand" id="logo" href="https://gretayu.github.io/lingouta/lingouta.html" style="top: 0px;"><img src="logo.png" width="24"></a>
+				<a class="nav-brand" href="https://gretayu.github.io/lingouta/lingouta.html">Lιngouτa</a>
 			</div>
-		</header>
-		<div class="row2"></div>
-		<div class="row">
-			<div class="ui two column centered grid">
-				<div class="column"></div>
-				<div class="column centered row">
-					<div class="column" id="left">
-						<div id="login"><strong>登入</strong></div>
-						<form class="ui form">
-							<div class="field">
-								<label>帳號</label>
-								<input type="text" name="id" placeholder="帳號">
-							</div>
-							<div class="field">
-								<label>密碼</label>
-								<input type="password" name="password" placeholder="密碼">
-							</div>
-							<div class="btn">
-								<button class="ui button" type="submit">登入</button>
-							</div>
-						</form>
-						<div id="sign">
-							<strong>尚未有帳號?<br><a href="https://gretayu.github.io/lingouta/signup.html" >立即註冊</a></strong>
+
+			<div class="col-7 nav-column">	
+				<nav role="navigation">
+					<ul id="overlay-nav-menu" class="nav-menu overlay-nav-menu">
+						<li class="nav-link"><a  href="#">競價網</a></li>
+						<li class="nav-link"><a href="#">風水地圖</a></li>
+						<li class="nav-link"><a  href="https://gretayu.github.io/lingouta/about.html">關於我們</a></li>
+
+					</ul>
+						<h2 id="data-toggle-menu" class="overlay-nav-menu-toggle">+</h2>
+				</nav>
+			</div>
+			<div class="col-2 signin-column">	
+				<nav class="nav-signin">
+					<a class="nav-link signin" href="https://gretayu.github.io/lingouta/login.html">登入</a><a class="nav-link signup" href="https://gretayu.github.io/lingouta/signup.html">註冊</a>
+				</nav>
+			</div>
+		</div>
+
+		<div class="row light">
+			<div class="column fillin">
+				<div class=" "><h3>登入</h3>
+				</div>
+
+				<div>
+					<form class="form">
+						<div class="field">
+							<label>帳號</label>
+							<input type="text" name="id" placeholder="帳號">
 						</div>
-					</div>
+						<div class="field">
+							<label>密碼</label>
+							<input type="password" name="password" placeholder="密碼">
+						</div>
+						<div>
+							<button id="signin-btn" class="ui button btn" type="submit">登入</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="sign-up">
+					<h3>沒有帳號?</h3>
+					<a href="https://gretayu.github.io/lingouta/signup.html">立即註冊</a>
 				</div>
 			</div>
 		</div>
