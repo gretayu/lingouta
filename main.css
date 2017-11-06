@@ -500,9 +500,9 @@ h4{
 }
 
 .ui-btn {
-	border-color: rgba(170, 226, 247, 0.5);
-	color: #042A3B;
-	background:rgba(170, 226, 247, 0.72);
+	border-color: white;
+    color: #042A3B;
+    background: #F7EFDF;
 }
 
 
