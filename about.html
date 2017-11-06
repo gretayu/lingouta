@@ -8,51 +8,61 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$("#data-toggle-menu").click(function(){
+				  $("#overlay-nav-menu").toggleClass('is-open');
+				});
+			});
+		</script>
+		
+		
 	</head>
 
 	<body>
-		<header id="header">
-			<div class="container">
-				<div class="menuleft">
-					<div class="logo"><a href="https://gretayu.github.io/lingouta/lingouta.html" >Lιngouτa</a>
-					</div>
-				</div>
-				
-				<div class="menuright">
-					<div class="me_hd">
-						<ul class="nav">
-						<li><a href="#">幹啥</a>
-						</li>
-
-						<li class="active"><a href="https://gretayu.github.io/lingouta/about.html" >關於我們</a></li>
-
-						</ul>
-					</div>
-				</div>
+		<div class="row nav-bar">
+			<div class="col-3 brand-column">	
+				<a class="nav-brand" id="logo" href="https://gretayu.github.io/lingouta/lingouta.html" style="top: 0px;"><img src="logo.png" width="24"></a>
+				<a class="nav-brand" href="https://gretayu.github.io/lingouta/lingouta.html">Lιngouτa</a>
 			</div>
-		</header>
 
-		<div class="root">
-			<section class="full-section">
+			<div class="col-7 nav-column">	
+				<nav role="navigation">
+					<ul id="overlay-nav-menu" class="nav-menu overlay-nav-menu">
+						<li class="nav-link"><a  href="#">競價網</a></li>
+						<li class="nav-link"><a href="#">風水地圖</a></li>
+						<li class="nav-link"><a  href="https://gretayu.github.io/lingouta/about.html">關於我們</a></li>
+
+					</ul>
+						<h2 id="data-toggle-menu" class="overlay-nav-menu-toggle">+</h2>
+				</nav>
+			</div>
+			<div class="col-2 signin-column">	
+				<nav class="nav-signin">
+					<a class="nav-link signin" href="#">登入</a><a class="nav-link signup" href="#">註冊</a>
+				</nav>
+			</div>
+		</div>
+
+		<div class="row">
+			<section class="dim">
 				<div id="team">
-					<div>
-						<h1>我們是一群熱愛中國傳統文化的大學生，在接受中國傳統文化的薰陶之後，深深感受到中國文化的博大精深。 <a style="color: tomato;">風水</a>貴為中國文化的代表性特色，卻仍然無法在日常生活中便利應用，因此我們決定開發一個簡單的工具，讓大家可以隨時查看地處週遭的<a style="color: tomato;">風水</a>，發揚中國傳統文化！</h1>
-					</div>
 				</div>
 
-				<div id="intro">
+				<div class="intro">
 					<h1>我們是一群熱愛中國傳統文化的大學生，在接受中國傳統文化的薰陶之後，深深感受到中國文化的博大精深。 <a style="color: tomato;">風水</a>貴為中國文化的代表性特色，卻仍然無法在日常生活中便利應用，因此我們決定開發一個簡單的工具，讓大家可以隨時查看地處週遭的<a style="color: tomato;">風水</a>，發揚中國傳統文化！</h1>
 				</div>
 
 			</section>
 
-			<section>
+			<section class="light">
 				<div class="subtitle">
 					<h2>這些人</h2>
 				</div>
 				<div class= "container" id="info">
 					<div class="indiv">
-						<div class="square" id="tien">
+						<div class="square" id="tien" >
 						</div>	
 						
 						<div>
@@ -62,7 +72,7 @@
 					</div>
 
 					<div class="indiv">
-						<div class="square" id="wei">
+						<div class="square" id="wei" >
 						</div>	
 							
 						<div>
@@ -82,7 +92,7 @@
 					</div>
 					
 					<div class="indiv">
-						<div class="square" id="lin">
+						<div class="square" id="lin" >
 						</div>	
 						
 						<div>
@@ -92,7 +102,7 @@
 					</div>
 					
 					<div class="indiv">
-						<div class="square" id="yu">
+						<div class="square" id="yu" >
 						</div>	
 						
 						<div>
@@ -103,25 +113,24 @@
 					
 			</section>
 
-			<section>
-				<div class="subtitle">
-					<ul>
-                        <li><h2>聯絡我們</h2></li>
-                    </ul>
+			<section class="contact dim">
+				<div class=" col-4">
+					<h3>聯絡我們</h3>
 				</div>
 
-				<div class="container" id="contact">
-					<div><li><a href="mailto:@mail.ncku.edu.tw" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-mail">Email</a></li>
+				<div class="row container col-8 contact-btn">
+					<div>
+					<li><a href="mailto:@mail.ncku.edu.tw" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-mail">Email</a></li>
 					</div>
+
 					<div>
                     <li><a href="http://" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-comment">Facebook</a></li>
 					</div>
+
 					<div>
                     <li><a href="https://" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-camera">Instagram</a></li>
 					</div>
-					<div>
-                    <li><a href="https://www.google.com.tw/search?client=safari&rls=en&dcr=0&ei=MgP3WY2wAcL68gWt9beQDA&q=風水&oq=風水&gs_l=psy-ab.12...0.0.0.10528.0.0.0.0.0.0.0.0..0.0....0...1..64.psy-ab..0.0.0....0.6V8XKYcbqWo" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-search">Google</a></li>
-                	</div>
+
 				</div>
 			</section>
 		</div>
