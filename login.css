@@ -132,6 +132,15 @@ div.header.container {
 	color: tomato;
 }
 
+/*section*/
+.full-section {
+    height: 100vh;
+    position: relative;
+    background-size: contain;
+    background-position: center;
+    margin-top: 40px;
+}
+
 
 /****media*****/
 @media (max-width: 900px) {
