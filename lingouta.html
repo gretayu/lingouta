@@ -2,48 +2,33 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="initial-scale=1.0">
 		<title>Lιngouτa - 風水寶位競價網</title>
 		<link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
-		<link rel="stylesheet" href="main.css" />
+		<link rel="stylesheet" href="main.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="navbar-toggle.js"></script>
+		<script type="text/javascript" src="hideNbOnScroll.js"></script>
+<!--會員中心顯示條件:myAccount.js-->		
+		<script type="text/javascript" src="myAccount.js"></script>
 
-		<script type="text/javascript">  //tab selector
-			$(function(){
-
-			    $('#tabs a').click(function(){
-
-			        $('#tabs .active').removeClass('active'); // remove the class from the currently selected
-			        $(this).addClass('active'); // add the class to the newly clicked link
-			       
-
-			        $('#tabs-content .active').removeClass('active'); // remove the class of the corresponding tab content
-			        $('.tabs-content #' + $(this).attr("id")).addClass('active'); // add the class to the corresponding tab content
-			    });
-			});
-		</script>
-		<script type="text/javascript">
-			$(function(){
-				$("#data-toggle-menu").click(function(){
-				  $("#overlay-nav-menu").toggleClass('is-open');
-				});
-			});
-		</script>
-
-
+		<script type="text/javascript" src="tab-selector.js"></script>
+		
+		
 	</head>
 
 	<body>
-		<div class="row nav-bar">
+<!--Nav Bar-->		
+		<nav class="row nav-bar">
 			<div class="col-3 brand-column">	
 				<a class="nav-brand" id="logo" href="https://gretayu.github.io/lingouta/lingouta.html" style="top: 0px;"><img src="logo.png" width="24"></a>
 				<a class="nav-brand" href="https://gretayu.github.io/lingouta/lingouta.html">Lιngouτa</a>
 			</div>
 
 			<div class="col-7 nav-column">	
-				<nav role="navigation">
+				<div role="navigation">
 					<ul id="overlay-nav-menu" class="nav-menu overlay-nav-menu">
 						<li class="nav-link"><a  href="#">競價網</a></li>
 						<li class="nav-link"><a href="#">風水地圖</a></li>
@@ -51,19 +36,28 @@
 
 					</ul>
 						<h2 id="data-toggle-menu" class="overlay-nav-menu-toggle">+</h2>
-				</nav>
+				</div>
 			</div>
-			<div class="col-2 signin-column">	
-				<nav class="nav-signin">
-					<a class="nav-link signin" href="https://gretayu.github.io/lingouta/login.html">登入</a><a class="nav-link signup" href="https://gretayu.github.io/lingouta/signup.html">註冊</a>
-				</nav>
+			<div class="col-2 account">	
+				<div id="nav-signin">
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">登入</a><a class="nav-link" href="https://gretayu.github.io/lingouta/signup.html">註冊</a>
+				</div> 
+				
+				<div id="nav-myaccount" class="hidden">
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">會員中心</a>
+				</div>
 			</div>
-		</div>
+				
+			</div>
+		</nav>
+
+		<div style="height: 51px;"></div>
+<!--Nav Bar end-->
 
 		<div class=" row tab-chart">
 	      <div class="row">
 	        <ul class="tabbed-chart tabs" data-tabs id="tabs">
-	          <li class="tabs-title"><a class="active" id="panel1" href="#panel1" >熱門一</a></li>
+	          <li class="tabs-title"><a class="active" id="panel1" href="#panel1">熱門一</a></li>
 	          <li class="tabs-title"><a id="panel2" href="#panel2">熱門二</a></li>
 	          <li class="tabs-title"><a id="panel3" href="#panel3">熱門三</a></li>
 	          <li class="tabs-title"><a id="panel4" href="#panel4">熱門四</a></li>
@@ -73,6 +67,7 @@
     		<div class="tabbed-chart-content tabs-content" id="tabs-content" data-tabs-content="tabbed-chart">
 	    		<div class="tabs-panel active" id="panel1">
 					<div class="col-8">
+<!--圖表-->
 						<a>表一</a>
 					</div>
 
@@ -83,6 +78,7 @@
 	    		</div>
 	       		<div class="tabs-panel" id="panel2">
 	       			<div class="col-8">
+<!--圖表-->
 	       				<a>表二</a>
 					</div>
 
@@ -93,6 +89,7 @@
 	       		</div>
 	       		<div class="tabs-panel" id="panel3">
 	    			<div class="col-8">
+<!--圖表-->
 	    				<a>表三</a>
 					</div>
 
@@ -103,6 +100,7 @@
 	    		</div>
 	       		<div class="tabs-panel" id="panel4">
 	       			<div class="col-8">
+<!--圖表-->
 	       				<a>表四</a>
 					</div>
 

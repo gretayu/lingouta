@@ -5,31 +5,30 @@
 		<meta name="viewport" content="initial-scale=1.0">
 		<title>Lιngouτa - 風水寶位競價網</title>
 		<link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
-		<link rel="stylesheet" href="main.css" />
+		<link rel="stylesheet" href="main.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
-		
-		<script type="text/javascript">
-			$(function(){
-				$("#data-toggle-menu").click(function(){
-				  $("#overlay-nav-menu").toggleClass('is-open');
-				});
-			});
-		</script>
+		<script type="text/javascript" src="navbar-toggle.js"></script>
+		<script type="text/javascript" src="hideNbOnScroll.js"></script>
+<!--會員中心顯示條件:myAccount.js-->		
+		<script type="text/javascript" src="myAccount.js"></script>
+
+		<script type="text/javascript" src="tab-selector.js"></script>
 		
 		
 	</head>
 
 	<body>
-		<div class="row nav-bar">
+<!--Nav Bar-->		
+		<nav class="row nav-bar">
 			<div class="col-3 brand-column">	
 				<a class="nav-brand" id="logo" href="https://gretayu.github.io/lingouta/lingouta.html" style="top: 0px;"><img src="logo.png" width="24"></a>
 				<a class="nav-brand" href="https://gretayu.github.io/lingouta/lingouta.html">Lιngouτa</a>
 			</div>
 
 			<div class="col-7 nav-column">	
-				<nav role="navigation">
+				<div role="navigation">
 					<ul id="overlay-nav-menu" class="nav-menu overlay-nav-menu">
 						<li class="nav-link"><a  href="#">競價網</a></li>
 						<li class="nav-link"><a href="#">風水地圖</a></li>
@@ -37,19 +36,30 @@
 
 					</ul>
 						<h2 id="data-toggle-menu" class="overlay-nav-menu-toggle">+</h2>
-				</nav>
-			</div>
-			<div class="col-2 signin-column">	
-				<nav class="nav-signin">
-					<a class="nav-link signin" href="https://gretayu.github.io/lingouta/login.html">登入</a><a class="nav-link signup" href="https://gretayu.github.io/lingouta/signup.html">註冊</a>
-				</nav>
-			</div>
-		</div>
-
-		<div class="row">
-			<section class="dim">
-				<div id="team">
 				</div>
+			</div>
+			<div class="col-2 account">	
+				<div id="nav-signin">
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">登入</a><a class="nav-link" href="https://gretayu.github.io/lingouta/signup.html">註冊</a>
+				</div> 
+				
+				<div id="nav-myaccount" class="hidden">
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">會員中心</a>
+				</div>
+			</div>
+				
+			</div>
+		</nav>
+
+		<div style="height: 51px;"></div>
+<!--Nav Bar end-->
+
+		<div class="row" style="position: static;">
+			<div id="team" class="fixed-bg" style="background: url('team.jpeg'); background-size: contain; ">
+			</div>
+			<div id="team"> </div>
+
+			<section class="dim ">
 
 				<div class="intro">
 					<h1>我們是一群熱愛中國傳統文化的大學生，在接受中國傳統文化的薰陶之後，深深感受到中國文化的博大精深。 <a style="color: tomato;">風水</a>貴為中國文化的代表性特色，卻仍然無法在日常生活中便利應用，因此我們決定開發一個簡單的工具，讓大家可以隨時查看地處週遭的<a style="color: tomato;">風水</a>，發揚中國傳統文化！</h1>
