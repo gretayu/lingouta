@@ -3,11 +3,11 @@ $(window).scroll(function(){
 	//NAVIGATION FADEIN/OUT
 	var st = $(document).scrollTop();
 	if (st > 150 && st > lastScroll){
-		$('nav').addClass('hidden');
+		$('nav.nav-bar').addClass('hiddentop');
 		hundert = st;
 	}
 	else if(st < (hundert - 33)){
-		$('nav').removeClass('hidden');
+		$('nav.nav-bar').removeClass('hiddentop');
 	}
   lastScroll = st; 	
   });
