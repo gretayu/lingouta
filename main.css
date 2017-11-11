@@ -130,7 +130,7 @@ h3 {
 }
 
 h4{
-	font-size: 1.2em;
+	font-size: 1.1em;
 }
 
 @media all and (max-width: 645px) {
@@ -140,7 +140,7 @@ h4{
 	}
 
 	h3 {
-		font-size: 1.5em;
+		font-size: 1.4em;
 		font-weight: normal;
 	}
 
@@ -154,6 +154,7 @@ label {
 /*********Nav Bar*******/
 nav {
 	top: 0;
+	width: 100vw;
 	transition: all 400ms cubic-bezier(0.75, 0, 0.35, 0.985);
 }
 
@@ -257,7 +258,7 @@ nav.hiddentop{
 	.overlay-nav-menu-toggle {
 		display: block;
 		position: absolute;
-		z-index: 5000;
+		z-index: 8000;
 		color: white;
 		top: 5px;
 		right: 10px;
@@ -311,7 +312,7 @@ nav.hiddentop{
 	  	position: absolute;
 	  	top: 5px;
 	  	right: 25px;
-	  	width: 60%;
+	  	width: 30%;
 	}
 
 	.hidden{
@@ -487,8 +488,12 @@ nav.hiddentop{
     transform: translate(-50%, -50%);
 }
 
+#member {
+	min-height: 80vh;
+}
+
 #member>.container{
-	padding: 45px;
+	padding: 40px;
 }
 .card > div > h3:hover {
 	color: #82c4c8;
@@ -496,7 +501,7 @@ nav.hiddentop{
 
 
 .card {
-	margin: 20px;
+	margin: 15px;
 }
 
 .square {
@@ -556,9 +561,6 @@ nav .container{
 	padding-left: 8px;
 }
 
-.contact-btn{
-}
-
 .contact-btn .ui-btn {
 	border-color: white;
     color: #042A3B;
@@ -567,20 +569,27 @@ nav .container{
 
 
 .contact-btn {
-	padding: 3px;
+    padding: 3px;
+    position: relative;
+    top: -5px;
 }
+
 .contact-btn >div {
  margin: 0 3px;
 }
 
 @media all and (max-width: 645px) {
+	#contact-btn .ui-btn{
+		padding: 0.7em 1.3em;
+	}
+
 	.ui-btn {
 	border: 0;
 	color: transparent;
 	background: transparent;
 	padding: 0;
-    width: 1.75em;
-    height: 1.75em;
+    width: 1.3em;
+    height: 1.3em;
     text-indent: -9999px;
     white-space: nowrap!important;
 	}
