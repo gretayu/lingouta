@@ -6,22 +6,20 @@
 		<title>Lιngouτa - 風水寶位競價網</title>
 		<link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
 		<link rel="stylesheet" href="main.css"/>
+		<link rel="stylesheet" href="login.css"/>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 		<script type="text/javascript" src="navbar-toggle.js"></script>
 		<script type="text/javascript" src="hideNbOnScroll.js"></script>
 <!--會員中心顯示條件:myAccount.js-->		
-		<script type="text/javascript" src="myAccount.js"></script>
-
-		<script type="text/javascript" src="tab-selector.js"></script>
-		
-		
+		<script type="text/javascript" src="myAccount.js"></script>	
 	</head>
 
 	<body>
 <!--Nav Bar-->		
-		<nav class="row nav-bar">
+		<nav class="row nav-bar dark">
 			<div class="col-3 brand-column">	
 				<a class="nav-brand" id="logo" href="https://gretayu.github.io/lingouta/lingouta.html" style="top: 0px;"><img src="logo.png" width="24"></a>
 				<a class="nav-brand" href="https://gretayu.github.io/lingouta/lingouta.html">Lιngouτa</a>
@@ -30,7 +28,8 @@
 			<div class="col-7 nav-column">	
 				<div role="navigation">
 					<ul id="overlay-nav-menu" class="nav-menu overlay-nav-menu">
-						<li class="nav-link"><a  href="#">競價網</a></li>
+						<li class="nav-link nav-link-deco"></li>
+						<li class="nav-link"><a  href="https://gretayu.github.io/lingouta/browse.html">競價網</a></li>
 						<li class="nav-link"><a href="#">風水地圖</a></li>
 						<li class="nav-link"><a  href="https://gretayu.github.io/lingouta/about.html">關於我們</a></li>
 
@@ -40,7 +39,7 @@
 			</div>
 			<div class="col-2 account">	
 				<div id="nav-signin">
-					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">登入</a><a class="nav-link" href="https://gretayu.github.io/lingouta/signup.html">註冊</a>
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">登入</a>
 				</div> 
 				
 				<div id="nav-myaccount" class="hidden">
@@ -53,18 +52,17 @@
 
 		<div style="height: 51px;"></div>
 <!--Nav Bar end-->
-
-		<div class=" row tab-chart">
+		<section class=" row tab-chart">
 	      <div class="row">
 	        <ul class="tabbed-chart tabs" data-tabs id="tabs">
-	          <li class="tabs-title"><a class="active" id="panel1" href="#panel1">熱門一</a></li>
-	          <li class="tabs-title"><a id="panel2" href="#panel2">熱門二</a></li>
-	          <li class="tabs-title"><a id="panel3" href="#panel3">熱門三</a></li>
-	          <li class="tabs-title"><a id="panel4" href="#panel4">熱門四</a></li>
+	          <li class="tabs-title"><a class="active dim" id="panel1" href="#panel1">熱門一</a></li>
+	          <li class="tabs-title"><a class="dim" id="panel2" href="#panel2">熱門二</a></li>
+	          <li class="tabs-title"><a class="dim" id="panel3" href="#panel3">熱門三</a></li>
+	          <li class="tabs-title"><a class="dim" id="panel4" href="#panel4">熱門四</a></li>
 	        </ul>
 	      </div>
 
-    		<div class="tabbed-chart-content tabs-content" id="tabs-content" data-tabs-content="tabbed-chart">
+    		<div class="tabbed-chart-content tabs-content light" id="tabs-content" data-tabs-content="tabbed-chart">
 	    		<div class="tabs-panel active" id="panel1">
 					<div class="col-8">
 <!--圖表-->
@@ -110,6 +108,6 @@
 
 	       		</div>
 	       	</div>
-    	</div>	
+	    </section>
 	</body>
 </html>

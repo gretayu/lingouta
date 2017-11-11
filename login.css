@@ -1,4 +1,5 @@
 /****login*****/
+
 .column {
 	display: flex;
     flex-direction: column;
@@ -32,23 +33,6 @@
 	float: right;
 }
 
-.form .name {
-	display: flex;
-	align-items: baseline;
-	justify-content: flex-start;
-}
-
-.form .name > div {
-	display: flex;
-	flex-direction: column;
-	padding: 0;
-	margin: 0;
-}
-
-.form .name > div > input {
-	margin: 1px 0;
-}
-
 
 .form label {
 	margin: 5px;
@@ -66,10 +50,6 @@
 	}
 	.textCenterWhenSmall {
 		text-align: center;
-	}
-	.field {
-		display: flex;
-		flex-direction: column;
 	}
 
 	.form label {
