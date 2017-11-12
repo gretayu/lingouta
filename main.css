@@ -22,7 +22,7 @@ div {
 	padding: 0;
 }
 /*log in*/
-.login{
+#login{
     height: 65vh;
     width: 80vw;
     background-color: #FFFFFF;
@@ -31,7 +31,7 @@ div {
     left: 50%;
     margin-top: -32.5vh;
     margin-left: -40vw;
-    opacity: 0.8;
+    opacity: 0.9;
     text-align: center;
 	display:none;
 }
@@ -39,6 +39,7 @@ div {
 	margin:5% 25%;
 	width:50%;
 }
+
 /*log in*/
 input {
 	background-color: #FAFAFA;
