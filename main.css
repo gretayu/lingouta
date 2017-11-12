@@ -25,15 +25,12 @@ div {
 #login{
     height: 65vh;
     width: 80vw;
-    background-color: #FFFFFF;
     position: fixed;
     top: 50%;
     left: 50%;
     margin-top: -32.5vh;
     margin-left: -40vw;
-    opacity: 0.9;
     text-align: center;
-	display:none;
 }
 .box{
 	margin:5% 25%;
