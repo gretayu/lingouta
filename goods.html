@@ -52,14 +52,19 @@
 				
 			</div>
 		</nav>
+		
+		<div class="top"></div>
+		
 		<div class="ui grid" id="goods">
-			<div class="row">
+			<div class="row" id="row1">
 				<div class="four wide column" id="goods-pic">
 					<img class="ui medium circular image" src="https://i.imgur.com/Phs6w7o.png">
 				</div>
 				<div class="twelve wide column" id="goods-content">
-					商品名稱<div class="row" id="goods-name"></div><!--商品名稱-->
-					商品介紹<div class="row" id="goods-info"></div><!--商品介紹-->
+					<div class="ui label">商品名稱</div>
+					<div class="row" id="goods-name">aaa</div><!--商品名稱-->
+					<div class="ui label">商品介紹</div>
+					<div class="row" id="goods-info">bbb<br>bbb<br>bbb</div><!--商品介紹-->
 					<div class="row" id="goods-btn">
 						<button class="ui red button" id="buy"><!--買的button-->
 							買
@@ -70,14 +75,18 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="column" id="goods-graph"><!--市場波動圖-->
-					市場波動圖
+			<div class="row" id="row1">
+				<div class="ui label">市場波動圖</div>
+				<div class="row" id="row2">
+					<div class="column" id="goods-graph"><!--市場波動圖-->
+						市場波動圖
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="column" id="goods-fs"><!--風水資訊-->
-					風水資訊
+				<div class="ui label">風水資訊</div>
+				<div class="row" id="row2">
+					<div class="column" id="goods-fs"><!--風水資訊-->
+						風水資訊
+					</div>
 				</div>
 			</div>
 		</div>
