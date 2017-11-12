@@ -1,0 +1,26 @@
+#goods{
+	background-color:#FFFFFF;
+	margin-top: 15vh;
+	padding-left:5vw;
+	padding-right:5vw;
+}
+.row{
+	margin-top:1vh;
+}
+.row::after{
+	margin-top:1vh;
+}
+.column{
+	padding:5vh 0 0 5vw;
+}
+#goods-pic{
+	padding-right:5vw;
+	padding-left:5vw;
+}
+#goods-graph{
+	padding-left:5vw;
+}
+#goods-fs{
+	padding-bottom:5vh;
+	padding-left:5vw;
+}

@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
 		<link rel="stylesheet" href="main.css"/>
 		<link rel="stylesheet" href="login.css"/>
+		<link rel="stylesheet" href="goods.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
@@ -45,72 +46,41 @@
 				</div> 
 				
 				<div id="nav-myaccount" class="hidden">
-					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">會員中心</a>
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/membercenter.html">會員中心</a>
 				</div>
 			</div>
 				
 			</div>
 		</nav>
-
-		<div style="height: 51px;"></div>
-<!--Nav Bar end-->
-		<section class=" row tab-chart">
-	      <div class="row">
-	        <ul class="tabbed-chart tabs" data-tabs id="tabs">
-	          <li class="tabs-title"><a class="active dim" id="panel1" href="#panel1">熱門一</a></li>
-	          <li class="tabs-title"><a class="dim" id="panel2" href="#panel2">熱門二</a></li>
-	          <li class="tabs-title"><a class="dim" id="panel3" href="#panel3">熱門三</a></li>
-	          <li class="tabs-title"><a class="dim" id="panel4" href="#panel4">熱門四</a></li>
-	        </ul>
-	      </div>
-
-    		<div class="tabbed-chart-content tabs-content light" id="tabs-content" data-tabs-content="tabbed-chart">
-	    		<div class="tabs-panel active" id="panel1">
-					<div class="col-8">
-<!--圖表-->
-						<a>表一</a>
+		<div class="ui grid" id="goods">
+			<div class="row">
+				<div class="four wide column" id="goods-pic">
+					<img class="ui medium circular image" src="https://i.imgur.com/Phs6w7o.png">
+				</div>
+				<div class="twelve wide column" id="goods-content">
+					商品名稱<div class="row" id="goods-name"></div><!--商品名稱-->
+					商品介紹<div class="row" id="goods-info"></div><!--商品介紹-->
+					<div class="row" id="goods-btn">
+						<button class="ui red button" id="buy"><!--買的button-->
+							買
+						</button>
+						<button class="ui blue button" id="sell"><!--賣的button-->
+							賣
+						</button>
 					</div>
-
-					<div class="col-4">
-						<a>資訊一</a>
-					</div>
-
-	    		</div>
-	       		<div class="tabs-panel" id="panel2">
-	       			<div class="col-8">
-<!--圖表-->
-	       				<a>表二</a>
-					</div>
-
-					<div class="col-4">
-						<a>資訊二</a>
-					</div>
-
-	       		</div>
-	       		<div class="tabs-panel" id="panel3">
-	    			<div class="col-8">
-<!--圖表-->
-	    				<a>表三</a>
-					</div>
-
-					<div class="col-4">
-						<a>資訊三</a>
-					</div>
-
-	    		</div>
-	       		<div class="tabs-panel" id="panel4">
-	       			<div class="col-8">
-<!--圖表-->
-	       				<a>表四</a>
-					</div>
-
-					<div class="col-4">
-						<a>資訊四</a>
-					</div>
-
-	       		</div>
-	       	</div>
-	    </section>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column" id="goods-graph"><!--市場波動圖-->
+					市場波動圖
+				</div>
+			</div>
+			<div class="row">
+				<div class="column" id="goods-fs"><!--風水資訊-->
+					風水資訊
+				</div>
+			</div>
+		</div>
 		<!--LOG IN-->	
 		<div class="ui modal"id="login">
 			<i class="close icon"></i>

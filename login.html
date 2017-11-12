@@ -5,22 +5,16 @@
 		<meta name="viewport" content="initial-scale=1.0">
 		<title>Lιngouτa - 風水寶位競價網</title>
 		<link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
 		<link rel="stylesheet" href="main.css"/>
 		<link rel="stylesheet" href="login.css"/>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 		<script type="text/javascript" src="navbar-toggle.js"></script>
 		<script type="text/javascript" src="hideNbOnScroll.js"></script>
-		<script type="text/javascript" src="login.js"></script>
 <!--會員中心顯示條件:myAccount.js-->		
-		<script type="text/javascript" src="myAccount.js"></script>
-
-		<script type="text/javascript" src="tab-selector.js"></script>
-		
-		
+		<script type="text/javascript" src="myAccount.js"></script>	
 	</head>
 
 	<body>
@@ -45,7 +39,7 @@
 			</div>
 			<div class="col-2 account">	
 				<div id="nav-signin">
-					<a class="nav-link">登入</a>
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/login.html">登入</a>
 				</div> 
 				
 				<div id="nav-myaccount" class="hidden">
@@ -58,68 +52,33 @@
 
 		<div style="height: 51px;"></div>
 <!--Nav Bar end-->
+
 		<div class="row light">
 			<div class="column fillin">
-				<div class="textCenterWhenSmall"><h3>註冊</h3>
+				<div class="textCenterWhenSmall"><h3>登入</h3>
 				</div>
+
 				<div>
 					<form class="form column">
 						<div class="row">
-							<label class=" col-2">姓名</label>
-							<input type="text" name="姓名" placeholder="姓名">
-						</div>
-
-						<div class="row">
-							<label class=" col-2">帳號</label>
+							<label>帳號</label>
 							<input type="text" name="id" placeholder="帳號">
 						</div>
-
 						<div class="row">
-							<label class=" col-2">密碼</label>
-							<input type="password" name="pwd1" placeholder="密碼 , 至少8個字母">
+							<label>密碼</label>
+							<input type="password" name="password" placeholder="密碼">
 						</div>
-
-						<div class="row">
-							<label class=" col-2">確認密碼</label>
-							<input type="password" name="pwd2" placeholder="請再輸入一次密碼">
-						</div>
-
-						
-						<div class="row">
-							<label class=" col-2">聯絡信箱</label>
-							<input type="text" name="email" placeholder="聯絡信箱">
-						</div>
-						<div class="row">
-							<label class=" col-2">生日</label>
-							<input type="text" name="birth" placeholder="例：1997/06/10">
-						</div>
-						<div class="btn">
-							<button class="ui button" type="submit">註冊</button>
+						<div>
+							<button id="signin-btn" class="ui button btn" type="submit">登入</button>
 						</div>
 					</form>
 				</div>
+
+				<div class="sign-up">
+					<h3>沒有帳號?</h3>
+					<a href="https://gretayu.github.io/lingouta/signup.html">立即註冊</a>
+				</div>
 			</div>
 		</div>
-		<!--LOG IN-->	
-		<div class="ui modal"id="login">
-			<i class="close icon"></i>
-			<div class="box">
-				<form class="ui form">
-					<div class="field">
-						<label>帳號</label>
-						<input type="text" name="id" placeholder="帳號">
-					</div>
-					<div class="field">
-						<label>密碼</label>
-						<input type="password" name="password" placeholder="密碼">
-					</div>
-					<button id="signin-btn" class="ui button grey btn" type="submit">登入</button>
-				</form>
-			</div>
-			<div class="sign-up">
-				<strong>沒有帳號?</strong><br><br><a href="https://gretayu.github.io/lingouta/signup.html">立即註冊</a>
-			</div>
-		</div>
-		<!--LOG IN-->
 	</body>
 </html>
