@@ -1,144 +1,67 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
-* {
-    font-family: "Noto Sans TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0;
-	padding: 0;
-	list-style: none;
+/****login*****/
 
-}
-
-html {
-	margin:0;
-	padding:0;
-	width: 100vw;
-}
-
-body {
-	margin: 0;
-	background: rgba(182, 182, 182, 1);
-	color: rgba(53, 53, 53, 1);
-	text-rendering: optimizeLegibility;
-	width: 100vw;
-}
-
-a {
-	color: rgba(53, 53, 53, 1);
-}
-
-a:hover, a:focus {
-	color: #fff;
-}
-
-#header{
-    background: rgba(10, 10, 10, 0.9);
-    border-bottom: 2px solid;
-	border-bottom-color: rgba(20, 20, 20, 0.4);
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    width: 120%;
-    z-index: 99999;
-    height: auto;
-    display: block;
-
-}
-
-.container {
+.column {
 	display: flex;
-	align-items: baseline;
-	justify-content: space-between;
+    flex-direction: column;
 }
 
-div.header.container {
-	width: 100vw;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
-	clear: both;
+.fillin {
+	margin: 0 5vw 5vh 5vw;
+	padding: 10px;
+	width: 500px;
 }
 
-.logo a {
-	font-size: 26px;
-	color: #fff;
-	line-height: 26px;
-	margin: 4px 0 0;
-	font-weight: bold;
+.fillin div{
+	margin: 3px 0;
+	padding: 0 0 5px 5px;
+}
+
+.btn{
+	text-align: center;
+}
+
+.textcenter {
+	text-align: center;
+}
+
+.sign-up a {
 	text-decoration: none;
-}
-
-.me_hd a {
-	font-size: 20px;
-	color: #fff;
-	line-height: 26px;
-	margin: 4px 0 0;
-	text-decoration: none;
-}
-
-.logo a:hover {
-	color: rgba(225, 200, 100, 1);
-}
-
-.me_hd a:hover {
-	color: rgba(225, 200, 100, 1);
-}
-
-.nav {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	clear: both;
-	display: flex;
-	justify-content: flex-start;
-}
-
-
-.nav > li {
-    position: relative;
-    display: inline;
-}
-
-.nav > li > a {
-    position: relative;
-    padding: 10px 15px;
-}
-
-.menuleft {
-	float: left;
-	position: relative;
-	min-height: 1px;
-	padding-right: 15px;
-	padding-left: 15px;
-	display: block;
-}
-
-.menuright {
-	width: 50%;
-	float: right;
-	position: relative;
-	min-height: 1px;
-	margin-left:-15px;
-	padding-right: 15px;
-	padding-left: 15px;
-
-}
-
-.mainmenu {
-	position:relative;
-	margin-left:-15px;
-}
-
-.active a{
 	color: tomato;
+	border-bottom: 2px solid #44677B;
+}
+.fillin button {
+	float: right;
 }
 
-/*section*/
-.full-section {
-    height: 100vh;
-    position: relative;
-    background-size: contain;
-    background-position: center;
-    margin-top: 40px;
+
+.form label {
+	margin: 5px;
+	margin-top: 0; 
+	padding: 3px;
+	padding-top: 0;
+}
+
+@media all and (max-width: 645px) {
+	.fillin {
+		width: 90%;
+	}
+	.fillin button {
+	background: lightgray;
+	}
+	.textCenterWhenSmall {
+		text-align: center;
+	}
+
+	.form label {
+		min-width: 78px;
+		margin: 2px 0;
+		padding: 2px 0;
+	}
+
+	.form .name >div {
+			width: 100%;
+	}
 }
 
 /****signup*****/
