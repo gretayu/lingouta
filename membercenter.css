@@ -1,0 +1,26 @@
+.top{
+	height:10vh;
+	background-color:#FFFFFF;
+}
+.membercenter{
+	background-color:#FFFFFF;
+	padding:25px 50px 100px 50px;
+}
+#left-col{
+	width:400px;
+}
+#right-col{
+	padding-left:5vw;
+}
+.ui.stackable.two.column.grid>.eight.wide.column>.ui.list>.item{
+	padding-bottom:5vh;
+}
+.ui.stackable.two.column.grid>.eight.wide.column>.ui.list>.item>.content{
+	padding-top:1vh;
+	padding-left:1vw;
+}
+#edbtn{
+	margin-bottom:10vh;
+	position: relative;
+    text-align: right;
+}
