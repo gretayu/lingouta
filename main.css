@@ -21,22 +21,6 @@ div {
 	margin: 0;
 	padding: 0;
 }
-/*log in*/
-#login{
-    height: 65vh;
-    width: 80vw;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -32.5vh;
-    margin-left: -40vw;
-    text-align: center;
-}
-.box{
-	margin:5% 25%;
-	width:50%;
-}
-/*log in*/
 
 .row {
 	position: relative;
@@ -72,15 +56,6 @@ div {
 .footer {
 	box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.16), -10px 0px 10px rgba(0, 0, 0, 0.23);
 	z-index: 9999;
-}
-
-#team {
-	width: 100vw;
-	height: 63.5vw;
-	margin: 0;
-	padding: 0;
-	top: 0px;
-	left: 0;
 }
 
 .fixed-bg {
@@ -137,22 +112,14 @@ div {
 ul {
 	padding: 0;
 }
+a {
+	color: inherit !important;
+}
 
 h1, h2, h3, h4 {
-	display: inherit;
-}
-
-
-h2 {
-	font-size: 4em;
-}
-
-h3 {
-	font-size: 2em;
-}
-
-h4{
-	font-size: 1.1em;
+	display: inherit !important;
+	font-weight: lighter !important;
+	color: inherit !important;
 }
 
 @media all and (max-width: 645px) {
@@ -233,6 +200,11 @@ nav.hiddentop{
 
 .nav-link {
 	margin: 0px 5px;
+}
+
+#data-toggle-menu{
+	font-size: 2em;
+	padding: 0;
 }
 .overlay-nav-menu-toggle {
 	display: none;
@@ -342,6 +314,22 @@ nav.hiddentop{
 	}
   
 }
+/*log in*/
+#login{
+    height: 65vh;
+    width: 80vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -32.5vh;
+    margin-left: -40vw;
+    text-align: center;
+}
+.box{
+	margin:5% 25%;
+	width:50%;
+}
+/*log in*/
 
 /********Homepage Tab*********/
 
@@ -451,6 +439,15 @@ nav.hiddentop{
 }
 
 /********About Us*******/
+#team {
+	width: 100vw;
+	height: 63.5vw;
+	margin: 0;
+	padding: 0;
+	top: 0px;
+	left: 0;
+}
+
 .intro {
 	padding: 20px 5vw;
 	position: absolute;
@@ -492,8 +489,15 @@ nav.hiddentop{
 	flex-wrap: wrap;
 	padding: 15px;
 	justify-content: flex-start;
+	padding: 35px;
 }
 
+.card>div{
+	margin-top: 5px;
+}
+.card h4{
+	margin: 0;
+}
 #info > div {
 	width: 28vw;
 	height: 40vh;
@@ -514,9 +518,6 @@ nav.hiddentop{
 	min-height: 80vh;
 }
 
-#member>.container{
-	padding: 40px;
-}
 .card > div > h3:hover {
 	color: #82c4c8;
 }
@@ -626,10 +627,7 @@ nav .container{
 	margin: 5px;
 }
 .search .ui-btn {
-    color: #042A3B;
-    background-color: #709cae;
-    border: 2px solid #709cae;
-    padding: 12px 20px;
+    padding: 0.9em 1.3em;
 }
 
 
