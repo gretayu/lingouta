@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0">
+		<title>Lιngouτa - 風水寶位競價網</title>
+		<link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
+		<link rel="stylesheet" href="main.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="navbar-toggle.js"></script>
+		<script type="text/javascript" src="hideNbOnScroll.js"></script>
+		<script type="text/javascript" src="login.js"></script>
+<!--會員中心顯示條件:myAccount.js-->		
+		<script type="text/javascript" src="myAccount.js"></script>
+
+		<script type="text/javascript" src="tab-selector.js"></script>
+		
+		
+	</head>
+
+	<body>
+<!--Nav Bar-->		
+		<nav class="row nav-bar dark">
+			<div class="col-3 brand-column">	
+				<a class="nav-brand" id="logo" href="https://gretayu.github.io/lingouta/lingouta.html" style="top: 0px;"><img src="logo.png" width="24"></a>
+				<a class="nav-brand" href="https://gretayu.github.io/lingouta/lingouta.html">Lιngouτa</a>
+			</div>
+
+			<div class="col-7 nav-column">	
+				<div role="navigation">
+					<ul id="overlay-nav-menu" class="nav-menu overlay-nav-menu">
+						<li class="nav-link nav-link-deco"></li>
+						<li class="nav-link"><a  href="https://gretayu.github.io/lingouta/browse.html">競價網</a></li>
+						<li class="nav-link"><a href="#">風水地圖</a></li>
+						<li class="nav-link"><a  href="https://gretayu.github.io/lingouta/about.html">關於我們</a></li>
+
+					</ul>
+						<a id="data-toggle-menu" class="overlay-nav-menu-toggle">+</a>
+				</div>
+			</div>
+			<div class="col-2 account">	
+				<div id="nav-signin">
+					<a class="nav-link">登入</a>
+				</div> 
+				
+				<div id="nav-myaccount" class="hidden">
+					<a class="nav-link" href="https://gretayu.github.io/lingouta/membercenter.html">會員中心</a>
+				</div>
+			</div>
+				
+			</div>
+		</nav>
+
+		<div style="height: 51px;"></div>
+<!--Nav Bar end-->
+
+<!--Search and Filter-->
+		<section class="center search dark" style="padding-bottom: 0;">
+			<div class="container row">
+				<div class="field">
+					<label><h4>找寶位</h4></label>
+					<input type="text" name="search" placeholder="search">
+				</div>
+				<div>
+					<button class="ui button grey btn ui-btn ui-icon-search ui-shadow ui-corner-all ui-btn-icon-left ui-btn-inline" type="submit"></button>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="row dark">
+	      
+		</section>
+			<!--LOG IN-->	
+		<div class="ui modal dim"id="login">
+			<i class="close icon"></i>
+			<div class="box">
+				<form class="ui form">
+					<div class="field">
+						<label>帳號</label>
+						<input type="text" name="id" placeholder="帳號">
+					</div>
+					<div class="field">
+						<label>密碼</label>
+						<input type="password" name="password" placeholder="密碼">
+					</div>
+					<button id="signin-btn" class="ui button grey btn" type="submit">登入</button>
+				</form>
+			</div>
+			<div class="sign-up">
+				<strong>沒有帳號?</strong><br><br><a href="https://gretayu.github.io/lingouta/signup.html" style="text-decoration: underline; color: #042b3c !important;">立即註冊</a>
+			</div>
+		</div>
+		<!--LOG IN-->
+	</body>
+</html>
+
