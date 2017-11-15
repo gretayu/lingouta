@@ -316,18 +316,22 @@ nav.hiddentop{
 }
 /*log in*/
 #login{
-    height: 65vh;
+    height: 400px;
     width: 80vw;
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -32.5vh;
+    margin-top: -200px;
     margin-left: -40vw;
     text-align: center;
+	padding: 10px;
 }
 .box{
 	margin:5% 25%;
 	width:50%;
+}
+.ui.dimmer.modals.page.transition.visible.active {
+    z-index: 10001;
 }
 /*log in*/
 
