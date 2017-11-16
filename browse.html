@@ -16,7 +16,7 @@
 		<script type="text/javascript" src="js/login.js"></script>
 <!--會員中心顯示條件:myAccount.js-->		
 		<script type="text/javascript" src="js/myAccount.js"></script>
-
+		<script type="text/javascript" src="js/filterbar.js"></script>
 		<script type="text/javascript" src="js/tab-selector.js"></script>
 		
 		
@@ -74,17 +74,19 @@
 		</section>
 
 		<section class="row filter tab-frame dark">
-	      <div class="row">
-	        <ul class="tabbed-frame tabs" data-tabs id="tabs">
-	          <li class="tabs-title"><a class="active " id="panel1">熱門一</a></li>
-	          <li class="tabs-title"><a class="" id="panel2">熱門二</a></li>
-	          <li class="tabs-title"><a class="" id="panel3">熱門三</a></li>
-	          <li class="tabs-title"><a class="" id="panel4" >熱門四</a></li>
-	        </ul>
-	      </div>
+		    <div id="wrapper-filter">
+      			<ul id="filter-bar">
+				        <span class="pill"></span>
+				        <li class="filter-option option-1 active" id="option-1" data-target="option-1">地區</li>
+				        <li class="filter-option option-2" id="option-2" data-target="option-2">宗教</li>
+				        <li class="filter-option option-3" id="option-3" data-target="option-3">價格</li>
+						<li class="filter-option option-4" id="option-4" data-target="option-4">坐向</li>
+				
+			      </ul>
+		    </div>
 
-    	<div class="tabs-content dark" id="tabs-content" data-tabs-content="tabbed-frame">
-	    		<div class="tabs-panel active" id="panel1">
+	    	<div class="tabs-content dark" id="tabs-content" data-tabs-content="tabbed-frame">
+	    		<div class="tabs-content active" id="option-1">
 					<div class="col-8">
 <!--圖表-->
 						<a>表一</a>
@@ -95,7 +97,7 @@
 					</div>
 
 	    		</div>
-	       		<div class="tabs-panel" id="panel2">
+	       		<div class="tabs-content" id="option-2">
 	       			<div class="col-8">
 <!--圖表-->
 	       				<a>表二</a>
@@ -106,7 +108,7 @@
 					</div>
 
 	       		</div>
-	       		<div class="tabs-panel" id="panel3">
+	       		<div class="tabs-content" id="option-3">
 	    			<div class="col-8">
 <!--圖表-->
 	    				<a>表三</a>
@@ -117,7 +119,7 @@
 					</div>
 
 	    		</div>
-	       		<div class="tabs-panel" id="panel4">
+	       		<div class="tabs-content" id="option-4">
 	       			<div class="col-8">
 <!--圖表-->
 	       				<a>表四</a>
@@ -137,6 +139,7 @@
 			<div class= "container cards-container" id="element-cards">
 					<div class="card">
 						<div class="square" id="商品1" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -147,6 +150,7 @@
 
 					<div class="card">
 						<div class="square" id="商品2" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -156,7 +160,8 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品3" >
-						</div>	
+							<figure><img src="../lingouta/image/"></figure>
+					</div>	
 						
 						<div>
 							<h3>商品3</h3>
@@ -165,6 +170,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品4" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -174,6 +180,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品5" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -183,6 +190,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品6" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -192,6 +200,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品7" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -201,6 +210,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品8" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -210,6 +220,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品9" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -219,6 +230,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品10" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -228,6 +240,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品11" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
@@ -237,6 +250,7 @@
 					</div>
 					<div class="card">
 						<div class="square" id="商品12" >
+							<figure><img src="../lingouta/image/"></figure>
 						</div>	
 						
 						<div>
