@@ -598,6 +598,7 @@ nav .container{
     padding: 3px;
     position: relative;
     top: -5px;
+    backfround: transparent;
 }
 
 .contact-btn >div {
