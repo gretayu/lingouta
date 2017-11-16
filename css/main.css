@@ -539,36 +539,36 @@ nav.hiddentop{
 }
 
 #tien{
-	background: url('image/tien.jpeg');
+	background: url('../image/tien.jpeg');
 }
 #wei{
-	background: url('image/wei.jpeg');
+	background: url('../image/wei.jpeg');
 }
 #chen{
-	background: url('image/chen.jpeg');
+	background: url('../image/chen.jpeg');
 }
 #lin{
-	background: url('image/lin.jpeg');
+	background: url('../image/lin.jpeg');
 }
 #yu{
-	background: url('image/yu.jpeg');
+	background: url('../image/yu.jpeg');
 	}
 
 
 #tien:hover {
-	background: url('image/tien.jpeg')  0 -200px;
+	background: url('../image/tien.jpeg')  0 -200px;
 }
 #wei:hover {
-	background: url('image/wei.jpeg')  0 -200px;
+	background: url('../image/wei.jpeg')  0 -200px;
 }
 #chen:hover {
-	background: url('image/chen.jpeg')  0 -200px;
+	background: url('../image/chen.jpeg')  0 -200px;
 }
 #lin:hover {
-	background: url('image/lin.jpeg')  0 -200px;
+	background: url('../image/lin.jpeg')  0 -200px;
 }
 #yu:hover {
-	background: url('image/yu.jpeg')  0 -200px;
+	background: url('../image/yu.jpeg')  0 -200px;
 }
 
 /********Contact info*******/
