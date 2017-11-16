@@ -388,7 +388,7 @@ nav.hiddentop{
 	display: none;
 }
 
-.tabs-content.active {
+.tabs-content .active {
 	display: block;
 }
 
@@ -638,16 +638,17 @@ nav .container{
 	width: 100%; 
 	margin:0; 
 	padding:0; 
-	height:36px; 
+	height:36px;
 	display:inline-flex;
 }
 #wrapper-filter {
 	background-color: #44667b; 
 	width: 570px; 
 	height:auto; 
-	margin:30px auto; 
+	margin:30px auto 0; 
 	border-radius: 30px; 
 	box-sizing: border-box;
+	z-index: 9;  
 }
 #filter-bar li {
 	width: 142.5px;
@@ -687,7 +688,46 @@ nav .container{
 	margin-left: 427.5px; 
 	transition: margin-left 200ms ease;
 }	
+
 .option-1.active, .option-2.active, .option-3.active, .option-4.active{
 	color: #2c4d5a;
 	transition: color 200ms; 
+}
+.filter{
+	padding: 0px;
+}
+.filter .branch-option{
+	width: 540px;
+	margin: 0 auto 30px;
+}
+.branch-option #option-2 {
+	position: relative;
+	top: -40px;
+}
+.branch-option #option-3 {
+	position: relative;
+	top: -80px;
+}
+.branch-option #option-4 {
+	position: relative;
+	top: -120px;
+}
+.filter .branch>div{
+	margin: 0px;
+}
+
+.filter .branch li{
+	text-align: center;
+	border-left: 0.5px solid rgba(250,250,250,0.1);
+	border-right: 0.5px solid rgba(250,250,250,0.3);
+}
+
+.branch-option .branch li{
+	opacity: 0;
+	transition: 0.3s ease-in;
+	}
+
+.branch-option .branch.active li{
+	opacity: 1;
+	transition: 0.3s ease-in;
 }
