@@ -1,8 +1,5 @@
-#back{
-	background-color: #F7EFE5;
-	position:relative;
-	width:100%;
-	padding:5px;
+section {
+	padding:20px;
 }
 #signup{
 	width:300px;
