@@ -15,9 +15,13 @@ body {
 }
 
 section {
-	padding: 20px 8px;
+	padding: 20px 10vw;
 }
-
+@media all and (max-width: 645px) {
+	section {
+		padding: 20px 3vw;
+	}
+}
 div {
 	margin: 0;
 	padding: 0;
@@ -339,31 +343,28 @@ nav.hiddentop{
 /*log in*/
 
 /********Homepage Tab*********/
-
-.tabs {
+.tab-chart .tabs {
 	display: flex;
-	padding: 0 10px;
 }
-
-.tab-chart .tabs li > a{
-	margin: 3px 0;
+.tab-chart .tabs li{
+	flex-grow: 1;
+	margin: 0;
 	opacity: 0.8;
 	padding: 8px;
-	border-radius: 5px;
+	border-radius: 3px;
 	border-right: 1px solid rgba(106,130,145,0.8);
-
+	text-align: center;
 }
 
-.tab-chart .tabs li > a:hover {
-	margin: 3px 0;
+.tab-chart .tabs li:hover {
 	opacity: 1;
 	padding: 8px;
-	border-radius: 5px;
+	border-radius: 3px;
 	border-right: 1px solid rgba(200,180,170,1);
 
 }
 
-.tab-chart .tabs li> .active{
+.tab-chart .tabs li.active{
 	opacity: 1;
 	border-right: 1px solid rgba(180,170,150,1);
 }
@@ -375,10 +376,9 @@ nav.hiddentop{
 
 .tab-chart .tabs-content {
 	position: relative;
-	top: -10px;
+	top: -3px;
 	width: auto;
 	height: 350px;
-	margin: 10px;
 }
 
 .tabs-panel {
@@ -395,37 +395,7 @@ nav.hiddentop{
 
 @media all and (max-width: 645px) {
 	.tab-chart {
-	background: #042A3B;
-	margin: 0;
-	padding: 15px 5px;
-	}
-
-	.tab-chart .tabs {
-		display: flex;
-		padding: 0 5px;
-	}
-
-	.tab-chart .tabs li >a {
-		margin: 3px 0;
-		padding: 2px;
-		border-radius: 3px;
-		border-right: 1px solid rgba(106,130,145,0.8);
-	}
-
-	.tab-chart .tabs li >a:hover {
-		margin: 3px 0;
-		padding: 2px;
-		border-radius: 3px;
-		border-right: 1px solid rgba(200,180,170,1);
-	}
-
-	.tab-chart .tabs-content {
-		position: relative;
-		top: -5px;
-		width: auto;
-		height: 350px;
-		margin: 5px;
-		background: #F7EFDF;
+		margin: 0;
 	}
 
 	.tab-chart .tabs-panel{
