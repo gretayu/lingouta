@@ -58,6 +58,21 @@ div {
 	justify-content: center;
 }
 
+.light {
+	background: #F7EFE5;
+	color: #2c4d5a;
+}
+
+.dim {
+	background: #F7EFE5;
+	color: #303030;
+}
+
+.dark {
+	background: transparent;
+	color: white;
+}
+
 .footer {
 	background: #042b3c; 
 	box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.16), -10px 0px 10px rgba(0, 0, 0, 0.23);
@@ -93,21 +108,6 @@ div {
     background-size: contain;
     background-position: center;
     padding-top: 0px;
-}
-
-.light {
-	background: #F7EFE5;
-	color: #2c4d5a;
-}
-
-.dim {
-	background: #F7EFE5;
-	color: #303030;
-}
-
-.dark {
-	background: transparent;
-	color: white;
 }
 
 .subtitle {
