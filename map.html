@@ -58,22 +58,29 @@
 <!--Nav Bar end-->
 
 <!--Search and Filter-->
-		<section class="center search dark" style="padding-bottom: 0;">
-			<div class="container row">
-				<div class="field">
-					<label><h4>找寶位</h4></label>
-					<input type="text" name="search" placeholder="search">
+		<section class="full-section dark">
+			<div class="center search">
+				<div class="container row">
+					<div class="field">
+						<label><h4>找寶位</h4></label>
+						<input type="text" name="search" placeholder="search">
+					</div>
+					<div>
+						<button class="ui button grey btn ui-btn ui-btn-small ui-icon-search ui-shadow ui-corner-all ui-btn-icon-left ui-btn-inline" type="submit"></button>
+					</div>
 				</div>
-				<div>
-					<button class="ui button grey btn ui-btn ui-icon-search ui-shadow ui-corner-all ui-btn-icon-left ui-btn-inline" type="submit"></button>
-				</div>
-
 			</div>
-
-		</section>
-
-		<section class="row dark">
-	      
+			
+			<div style="height: 80%;">
+			    <div class="wrapper" id="map">
+				    <div class="col1-8row1-12"><a>地圖</a></div>
+				    <div class="col9-12row1-7"><a>風水</a></div>
+				    <div class="col9-12row8-12">
+				    	<a>瀏覽紀錄</a>
+				    	<button class="ui button grey btn ui-btn-noicon-small ui-shadow ui-corner-all ui-btn-inline" type="submit" style="float: right;">清除</button>
+				    </div>
+				</div>
+			</div>
 		</section>
 			<!--LOG IN-->	
 		<div class="ui modal dim"id="login">
