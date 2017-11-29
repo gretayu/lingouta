@@ -121,6 +121,21 @@ div {
   grid-column: 9 / 13;
   grid-row: 8 / 13;
 }
+@media all and (max-width: 645px) {
+	.col1-8row1-12 {
+	  grid-column: 1 / 10;
+	  grid-row: 1 / 9;
+	}
+	.col9-12row1-7 {
+	  grid-column: 10 / 13;
+	  grid-row: 1/ 9;
+	}
+	.col9-12row8-12 {
+	  grid-column: 1 / 13;
+	  grid-row: 9 / 13;
+	}
+}
+
 .full-section {
     height: 100vh;
     position: relative;
