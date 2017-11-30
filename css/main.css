@@ -19,7 +19,7 @@ section {
 }
 @media all and (max-width: 645px) {
 	section {
-		padding: 20px 3vw;
+		padding: 10px 3vw;
 	}
 }
 div {
@@ -106,7 +106,7 @@ div {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
 }
 
 .col1-8row1-12 {
@@ -123,25 +123,26 @@ div {
 }
 @media all and (max-width: 645px) {
 	.col1-8row1-12 {
-	  grid-column: 1 / 10;
-	  grid-row: 1 / 9;
+	  grid-column: 1 / 13;
+	  grid-row: 1 / 8;
 	}
 	.col9-12row1-7 {
-	  grid-column: 10 / 13;
-	  grid-row: 1/ 9;
+	  grid-column: 1 / 13;
+	  grid-row: 8/ 11;
 	}
 	.col9-12row8-12 {
 	  grid-column: 1 / 13;
-	  grid-row: 9 / 13;
+	  grid-row: 11 / 13;
 	}
 }
 
 .full-section {
-    height: 100vh;
+    height: calc(100vh - 51.05px);
     position: relative;
     background-size: contain;
     background-position: center;
-    padding: 0px auto 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 
@@ -154,13 +155,13 @@ ul {
 	padding: 0;
 }
 a {
-	color: inherit !important;
+	color: inherit ;
 }
 
 h1, h2, h3, h4 {
 	display: inherit !important;
 	font-weight: lighter !important;
-	color: inherit !important;
+	color: inherit  !important;
 }
 
 @media all and (max-width: 645px) {
@@ -545,30 +546,14 @@ nav.hiddentop{
 	border: 1px solid rgb(150, 150, 150);
 	border-radius: 2px;
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
-}
-
-.square figure{
-	width: 200px;
-	height: 200px;
-	margin: 0;
-	padding: 0;
-	background: #fff;
-	overflow: hidden;
-}
-
-.square  figure  img {
-	height: auto;
-	width: 200px;
+	background-size: 100% 100%;
+	background-position: center center;
 	transition: .3s ease-in-out;
-	position: relative;
-	top: 0;
-	left: 0;
 }
 
-.square figure:hover img {
-	width: 250px;
-	position: relative;
-	left: -25px;
+.square:hover {
+	background-size: 150% 150%;
+	background-position: center top;
 }
 
 /********Contact info*******/
@@ -628,7 +613,7 @@ nav .container{
 
 /*****Browse*****/
 .search div {
-	margin: 5px;
+	padding: 5px 0;
 }
 .ui-btn-small {
     padding: 0.9em 1.3em !important;
@@ -831,5 +816,5 @@ nav .container{
 }
 
 #map{
-	height: 80%;
+	height: 95%;
 }
