@@ -18,7 +18,9 @@ function initMap() {
         //set the center at the positon
         map.setCenter(e.latLng);
         //set a suitable zoom
-        map.setZoom(13);
+        if (map.zoom <= 13) {
+            map.setZoom(13);
+        }
         //Fandle call for the 風水
         //add to the history list
         var myposition = e.latLng;
@@ -28,39 +30,6 @@ function initMap() {
     });
 
 }
-
-//<!--the wrong>
-//var map;
-//function initMap() {
-//    map = new google.maps.Map(document.getElementById('realmap'), {
-//        center: {
-//            lat: 23.5,
-//            lng: 121
-//        },
-//        zoom: 10
-//    });
-//
-//    map.addListener('click', function (e) {
-//        //place a Pin at the position
-//        placeMarkerAndPanTo(e.latLng, map);
-//        //set the center at the positon
-//        map.setCenter(e.latLng);
-//        //set a suitable zoom
-//        map.setZoom(13);
-//        //Fandle call for the 風水
-//        //add to the history list
-//    });
-//}
-//
-//function addItem(var str) {
-//    //alert('here!');
-//    var ul = document.getElementById("historylist");
-//    var candidate = l;
-//    var li = document.createElement("li");
-//    li.setAttribute('id', '');
-//    li.appendChild(document.createTextNode(candidate.value));
-//    ul.appendChild(li);
-//}
 
 function placeMarkerAndPanTo(latLng, map) {
     var img = {
