@@ -81,6 +81,10 @@
 	#fengshui  .level{
 	font-size: 2em;
 	line-height: 2.2em;
+	position: relative;
+	top: -1em;
+	float: right;
+	text-align: end;
 	}
 }
 #history {
