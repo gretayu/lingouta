@@ -1,10 +1,6 @@
 
 @import url(//fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
 
-#history {
-    background-color: darkgray;
-}
-
 @keyframes typing5-1 {
   0%{width: 0 ;}
   23%{ width: 15em ;}
@@ -87,4 +83,6 @@
 	line-height: 2.2em;
 	}
 }
-
+#history {
+     overflow: scroll;
+}
