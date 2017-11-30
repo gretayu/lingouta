@@ -1,3 +1,4 @@
+
 @import url(//fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
 
 #history {
@@ -72,3 +73,18 @@
 	line-height: 3em;
 	width: 6em;
 }
+@media all and (max-width: 645px) {
+	#fengshui a{
+		display: none;
+	}
+	#fengshui h4{
+	font-size: 1em;
+	line-height: 1.2em;
+	margin: 0;
+	}
+	#fengshui  .level{
+	font-size: 2em;
+	line-height: 2.2em;
+	}
+}
+
