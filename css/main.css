@@ -122,15 +122,15 @@ div {
   grid-row: 8 / 13;
 }
 @media all and (max-width: 645px) {
-	.col1-8row1-12 {
+	.col1-7row1-12 {
 	  grid-column: 1 / 13;
 	  grid-row: 1 / 8;
 	}
-	.col9-12row1-7 {
+	.col8-12row1-7 {
 	  grid-column: 1 / 13;
 	  grid-row: 8/ 11;
 	}
-	.col9-12row8-12 {
+	.col8-12row8-12 {
 	  grid-column: 1 / 13;
 	  grid-row: 11 / 13;
 	}
