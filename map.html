@@ -7,7 +7,6 @@
     <title>Lιngouτa - 風水寶位競價網</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
-    <link rel="stylesheet" href="css/main.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
@@ -17,16 +16,13 @@
     <script type="text/javascript" src="js/login.js"></script>
     <!--會員中心顯示條件:myAccount.js-->
     <!--    //<script type="text/javascript" src="js/myAccount.js"></script>-->
-
     <script type="text/javascript" src="js/tab-selector.js"></script>
-
-    <link rel="stylesheet" href="css/map.css" /> //load in in the google API
+    <!--//load in in the google API-->
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/map.css" />
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQKAKWyVM4p_7XouxlSSs0KS7bUVKCYgQ&callback=initMap">
     </script>
-    //laod the js for map
     <script type="text/javascript" src="js/map.js"></script>
-
-
 </head>
 
 <body>
@@ -78,11 +74,19 @@
             </div>
         </div>
 
-        <div style="height: 80%;">
+        <div style="height: calc(100% - 52px);">
             <div class="wrapper" id="map">
                 <div class="col1-8row1-12" id="realmap"><a>地圖</a></div>
                 <!--                //the map-->
-                <div class="col9-12row1-7" id="fengshui"><a>風水</a></div>
+                <div class="col9-12row1-7" id="fengshui">
+                    <a>風水詩句</a>
+                    <h4 class="typ5-1">國人於坡地，</h4>
+                    <h4 class="typ5-2">喜前低後高，自低處向上</h4>
+                    <h4 class="typ5-3">自古以來，</h4>
+                    <h4 class="typ5-4">仍以平整為上，方圓四面平</h4>
+                    <h4 class="typ5-5 level">吉</h4>
+                    
+                </div>
                 <!--                //show the results-->
 
                 <div class="col9-12row8-12" id="history">
