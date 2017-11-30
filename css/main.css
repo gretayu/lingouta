@@ -15,7 +15,7 @@ body {
 }
 
 section {
-	padding: 20px 10vw;
+	padding: 20px 5vw;
 }
 @media all and (max-width: 645px) {
 	section {
@@ -109,16 +109,16 @@ div {
   grid-template-rows: repeat(12, 1fr);
 }
 
-.col1-8row1-12 {
-  grid-column: 1 / 9;
+.col1-7row1-12 {
+  grid-column: 1 / 8;
   grid-row: 1 / 13;
 }
-.col9-12row1-7 {
-  grid-column: 9 / 13;
+.col8-12row1-7 {
+  grid-column: 8 / 13;
   grid-row: 1 / 8;
 }
-.col9-12row8-12 {
-  grid-column: 9 / 13;
+.col8-12row8-12 {
+  grid-column: 8 / 13;
   grid-row: 8 / 13;
 }
 @media all and (max-width: 645px) {
