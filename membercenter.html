@@ -6,6 +6,7 @@
 		<title>Lιngouτa - 風水寶位競價網</title>
 		<link rel="icon" type="image/png" href="https://i.imgur.com/Phs6w7o.png">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" href="css/main.css"/>
 		<link rel="stylesheet" href="css/membercenter.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,8 +16,9 @@
 		<script type="text/javascript" src="js/navbar-toggle.js"></script>
 		<script type="text/javascript" src="js/hideNbOnScroll.js"></script>
 		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/membercenter.js"></script>
 <!--會員中心顯示條件:myAccount.js-->		
-		<script type="text/javascript" src="js/myAccount.js"></script>	
+		<script type="text/javascript" src="js/myAccount.js"></script>
 	</head>
 
 	<body>
@@ -69,20 +71,20 @@
 				</div>
 				<div class="eight wide column" id="right-col">
 					<div class="ui list">
-						<div class="item">
-							<div class="ui label"><i class="user icon"></i>姓名</div>
+						<div class="item" id="i1">
+							<div class="ui label" id="l1"><i class="user icon"></i>姓名</div>
 							<div class="content" id="name">姓名</div>
 						</div>
-						<div class="item">
-							<div class="ui label"><i class="cube icon"></i>帳號</div>
+						<div class="item" id="i2">
+							<div class="ui label" id="l2"><i class="cube icon"></i>帳號</div>
 							<div class="content" id="id">帳號</div>
 						</div>
-						<div class="item">
-							<div class="ui label"><i class="mail icon"></i>E-mail</div>
+						<div class="item" id="i3">
+							<div class="ui label" id="l3"><i class="mail icon"></i>E-mail</div>
 							<div class="content" id="email">E-mail</div>
 						</div>
-						<div class="item">
-							<div class="ui label"><i class="birthday icon"></i>生日</div>
+						<div class="item" id="i4">
+							<div class="ui label" id="l4"><i class="birthday icon"></i>生日</div>
 							<div class="content" id="birth">生日</div>
 						</div>
 					</div>
