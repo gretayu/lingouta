@@ -1,6 +1,8 @@
 
 $(document).ready(function(){
-	$('#left-col').addClass('animated rollIn','-vendor-animation-duration: 4s');
+	$('#left-col').addClass('animated rollIn','-vendor-animation-duration: 4s').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+			$('#left-col').removeClass('animated rollIn');
+		});
 	$('#i1').addClass('animated fadeInLeft','-vendor-animation-duration: 4s');
 	$('#i2').addClass('animated fadeInRight','-vendor-animation-duration: 4s');
 	$('#i3').addClass('animated fadeInLeft','-vendor-animation-duration: 4s');
@@ -22,9 +24,9 @@ $(document).ready(function(){
 		$("#l4").css("background-color","#93cfea")},function(){
 		$("#l4").css("background-color","#e8e8e8");}
 	);
-	$(".ui.medium.circular.image").hover(function(){
-		$('.ui.medium.circular.image').addClass('animated swing').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
-			$('.ui.medium.circular.image').removeClass('animated swing');
+	$('#left-col').mouseover(function(){
+		$('#left-col').addClass('animated swing').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+			$('#left-col').removeClass('animated swing');
 		});
 	});
 });
