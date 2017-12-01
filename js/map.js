@@ -24,7 +24,7 @@ function initMap() {
         //Fandle call for the 風水
         //add to the history list
         var myposition = e.latLng;
-        var historydata = '(' + e.latLng + ')';
+        var historydata = e.latLng;
         //alert(historydata);
         addItem(historydata);
     });
