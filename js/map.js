@@ -21,10 +21,28 @@ function initMap() {
         if (map.zoom <= 13) {
             map.setZoom(13);
         }
-        //Fandle call for the 風水
+        //call for the feng shui
+        
+        var obj = {};
+		obj.latitude = e.latLng.lat();
+        obj.longitude = e.latLng.lng();
+		$.ajax({
+			method: "post",
+			url: "connect_feng_shui.php",
+			data: JSON.stringify(obj),
+			success: function(datas) {
+                var output = JSON.parse(datas);
+                //output.content -> the peom of the type of feng shui 
+                //output.content_2 -> the judgement of chosen place
+				if(output.content!=""){
+					/*更新map.html中的詩句顯示*/
+					
+				}
+            }
+        })
         //add to the history list
         var myposition = e.latLng;
-        var historydata = e.latLng;
+        var historydata = '(' + e.latLng + ')';
         //alert(historydata);
         addItem(historydata);
     });
@@ -86,6 +104,24 @@ $(document).ready(function () {
                 //add to the history list 
                 addItem(address);
                 //Fandel call for the 風水
+                
+                var obj = {};
+                obj.latitude = e.latLng.lat();
+                obj.longitude = e.latLng.lng();
+                $.ajax({
+                    method: "post",
+                    url: "connect_feng_shui.php",
+                    data: JSON.stringify(obj),
+                    success: function(datas) {
+                        var output = JSON.parse(datas);
+                        //output.content -> the peom of the type of feng shui 
+                        //output.content_2 -> the judgement of chosen place
+                        if(output.content!=""){
+                            /*更新map.html中的詩句顯示*/
+                            
+                        }
+                    }
+                })
             } else {
                 alert('Not found!');
             }
