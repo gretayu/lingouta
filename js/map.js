@@ -24,12 +24,18 @@ function initMap() {
             map.setZoom(13);
         }
         //call for the feng shui
-      console.log(e.latLng.lat()); 
+        console.log(e.latLng.lat()); 
         var obj = {};
 		obj.latitude = e.latLng.lat();
         obj.longitude = e.latLng.lng();
+        
+        $(".typ5-1").html("");
+        $(".typ5-2").html("");
+        $(".typ5-3").html("");
+        $(".typ5-4").html("");
+        $("#finalresult").html("");
 	
-    $.ajax({
+        $.ajax({
 			method: "post",
 			url: "connect_feng_shui.php",
 			data: {
@@ -40,10 +46,16 @@ function initMap() {
             },
 			success: function(datas) {
             var output = JSON.parse(datas);
-                //output.content -> the peom of the type of feng shui 
-                //output.content_2 -> the judgement of chosen place
+                //output.content_1to4 -> the peom of the type of feng shui 
+                //output.content_5 -> the judgement of chosen place
+                console.log(output);
 				if(output.content!=""){
 					/*更新map.html中的詩句顯示*/
+                    $(".typ5-1").html(output.content_1);
+                    $(".typ5-2").html(output.content_2);
+                    $(".typ5-3").html(output.content_3);
+                    $(".typ5-4").html(output.content_4);
+                    $("#finalresult").html(output.content_5);
 				}
             }
         })
@@ -52,11 +64,6 @@ function initMap() {
         var historydata = '(' + e.latLng + ')';
         //alert(historydata);
         addItem(historydata);
-        $(".typ5-1").remove();
-        $(".typ5-2").remove();
-        $(".typ5-3").remove();
-        $(".typ5-4").remove();
-        $("#finalresult").remove();
     });
 
 }
@@ -117,20 +124,39 @@ $(document).ready(function () {
                 addItem(address);
                 //Fandel call for the 風水
                 
+                //call for the feng shui
+                console.log(e.latLng.lat()); 
                 var obj = {};
                 obj.latitude = e.latLng.lat();
                 obj.longitude = e.latLng.lng();
+                
+                $(".typ5-1").html("");
+                $(".typ5-2").html("");
+                $(".typ5-3").html("");
+                $(".typ5-4").html("");
+                $("#finalresult").html("");
+            
                 $.ajax({
                     method: "post",
                     url: "connect_feng_shui.php",
-                    data: JSON.stringify(obj),
+                    data: {
+                        lat:e.latLng.lat(),
+                        lng:e.latLng.lng()
+                      
+                      
+                    },
                     success: function(datas) {
-                        var output = JSON.parse(datas);
-                        //output.content -> the peom of the type of feng shui 
-                        //output.content_2 -> the judgement of chosen place
+                    var output = JSON.parse(datas);
+                        //output.content_1to4 -> the peom of the type of feng shui 
+                        //output.content_5 -> the judgement of chosen place
+                        console.log(output);
                         if(output.content!=""){
                             /*更新map.html中的詩句顯示*/
-                            
+                            $(".typ5-1").html(output.content_1);
+                            $(".typ5-2").html(output.content_2);
+                            $(".typ5-3").html(output.content_3);
+                            $(".typ5-4").html(output.content_4);
+                            $("#finalresult").html(output.content_5);
                         }
                     }
                 })
