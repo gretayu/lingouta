@@ -5,12 +5,14 @@ var markers = [];
 function initMap() {
     map = new google.maps.Map(document.getElementById('realmap'), {
         center: {
-            lat: 23.5,
-            lng: 121
+            lat: 22.994234471309202,
+            lng:120.21691918373108 
         },
         zoom: 10
     });
 
+    
+    
     map.addListener('click', function (e) {
         //alert(e.latLng);
         //place a pan
@@ -22,21 +24,26 @@ function initMap() {
             map.setZoom(13);
         }
         //call for the feng shui
-        
+      console.log(e.latLng.lat()); 
         var obj = {};
 		obj.latitude = e.latLng.lat();
         obj.longitude = e.latLng.lng();
-		$.ajax({
+	
+    $.ajax({
 			method: "post",
 			url: "connect_feng_shui.php",
-			data: JSON.stringify(obj),
+			data: {
+                lat:e.latLng.lat(),
+                lng:e.latLng.lng()
+              
+              
+            },
 			success: function(datas) {
-                var output = JSON.parse(datas);
+            var output = JSON.parse(datas);
                 //output.content -> the peom of the type of feng shui 
                 //output.content_2 -> the judgement of chosen place
 				if(output.content!=""){
 					/*更新map.html中的詩句顯示*/
-					
 				}
             }
         })
@@ -45,6 +52,11 @@ function initMap() {
         var historydata = '(' + e.latLng + ')';
         //alert(historydata);
         addItem(historydata);
+        $(".typ5-1").remove();
+        $(".typ5-2").remove();
+        $(".typ5-3").remove();
+        $(".typ5-4").remove();
+        $("#finalresult").remove();
     });
 
 }
