@@ -13,10 +13,12 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
 		<script type="text/javascript" src="js/navbar-toggle.js"></script>
 		<script type="text/javascript" src="js/hideNbOnScroll.js"></script>
 		<script type="text/javascript" src="js/login.js"></script>
 		<script type="text/javascript" src="ls/tab-selector.js"></script>
+		<script type="text/javascript" src="js/goods.js"></script>
 <!--會員中心顯示條件:myAccount.js-->		
 		<script type="text/javascript" src="js/myAccount.js"></script>	
 	</head>
@@ -57,41 +59,58 @@
 <!--Nav Bar end-->
 		
 		<div class="ui grid" id="goods">
-			<div class="row" id="row1">
-				<div class="four wide column" id="goods-pic">
-					<img class="ui medium circular image" src="https://i.imgur.com/Phs6w7o.png">
-				</div>
-				<div class="twelve wide column" id="goods-content">
-					<div class="ui label">名稱</div>
-					<div class="row" id="goods-name">aaa</div><!--商品名稱-->
-					<div class="ui label">介紹</div>
-					<div class="row" id="goods-info">bbb<br>bbb<br>bbb</div><!--商品介紹-->
-					<div class="ui label">價錢</div>
-					<div class="row" id="goods-price"><i class="dollar icon"></i></div><!--價錢-->
-					<div class="row" id="goods-btn">
-						<button class="ui red button" id="buy"><!--買的button-->
-							買
-						</button>
-						<button class="ui blue button" id="sell"><!--賣的button-->
-							賣
-						</button>
+			<div class="one mobile wide two tablet wide column"></div>
+			<div class="sixteen wide computer fourteen wide mobile twelve wide tablet column">
+				<div class="ui stackable row grid" id="row1">
+					<div class="sixteen wide mobile five wide computer column" id="goods-pic">
+						<img class="ui circular image" src="http://www.lungyengroup.com.tw/uploads/product/130320_5f0d4762.jpg">
 					</div>
+					<div class="sixteen wide mobile eleven wide computer column" id="goods-content">
+						<div class="ui label">名稱</div>
+						<h5 class="row" id="goods-name">龍巖股份</h5><!--商品名稱-->
+						<div class="ui label">介紹</div>
+						<div class="row" id="goods-info">
+							<h5>大中華區禮儀、殯葬服務最佳託付者</h5>
+							<div>
+								龍巖自81年創立以來，不斷積極致力於禮儀服務、禮儀商品與設施革新研發，從中努力求突破與創新，除了培育優質禮儀師與相關人員，公司內部更持續不斷地教育訓練與研發，以維持應有的服務品質與滿足不同族群的消費群眾，提供社會大眾最優質的殯葬環境與服務，更期望領先與創造消費趨勢。
+							</div>
+							<h5>落實禮儀服務一元化</h5>
+							<div>
+								龍巖以位於台灣北部的白沙灣安樂園為基礎，十年之中完成有如香格里拉的殿堂--「真龍殿」，並於白沙灣安樂園園區持續規劃並推出戶外墓園商品，廣受好評。繼殯葬硬體設施開發銷售具一定成果後，龍巖多次考察國外先進經驗後，更與日本SUN LIFE簽約進行殯葬服務技術交流合作，於市場上首開先例推出「生前契約」商品，規劃完整而優質的禮儀服務流程，落實禮儀服務一元化，全力提升生命禮儀服務之品質與範圍，並於2000年取得亞洲第一家通過ISO 9001國際品保驗證標準的殯葬企業的殊榮，同時也真正將經營範疇跨入殯葬服務業的行列。
+							</div>
+						</div><!--商品介紹-->
+						<div class="ui label">價錢</div>
+						<h5 class="row" id="goods-price"><i class="dollar icon"></i>26,000</h5><!--價錢-->
+						<div class="row" id="goods-btn">
+							<button class="ui red button" id="buy"><!--買的button-->
+								買
+							</button>
+							<button class="ui blue button" id="sell"><!--賣的button-->
+								賣
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="ui row grid" id="row1">
+					<div class="one wide computer one wide tablet column"></div>
+					<div class="twelve wide computer fourteem wide tablet sixteen wide mobile column">
+						<div class="ui label">市場波動圖</div>
+						<div class="row" id="row2">
+							<div class="column" id="goods-graph"><!--市場波動圖-->
+								市場波動圖
+							</div>
+						</div>
+						<div class="ui label">風水資訊</div>
+						<div class="row" id="row2">
+							<div class="column" id="goods-fs"><!--風水資訊-->
+								風水資訊
+							</div>
+						</div>
+					</div>
+					<div class="one wide computer one wide tablet column"></div>
 				</div>
 			</div>
-			<div class="row" id="row1">
-				<div class="ui label">市場波動圖</div>
-				<div class="row" id="row2">
-					<div class="column" id="goods-graph"><!--市場波動圖-->
-						市場波動圖
-					</div>
-				</div>
-				<div class="ui label">風水資訊</div>
-				<div class="row" id="row2">
-					<div class="column" id="goods-fs"><!--風水資訊-->
-						風水資訊
-					</div>
-				</div>
-			</div>
+			<div class="one mobile wide two tablet wide column"></div>
 		</div>
 		<!--LOG IN-->	
 		<div class="ui modal"id="login">
