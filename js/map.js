@@ -120,28 +120,31 @@ $(document).ready(function () {
                 placeMarkerAndPanTo(myLatlng, map);
                 //set the suitable zoom
                 map.setZoom(15);
+                //alert("try0");
                 //add to the history list 
                 addItem(address);
+                //alert("try1");
                 //Fandel call for the 風水
                 
                 //call for the feng shui
-                console.log(e.latLng.lat()); 
-                var obj = {};
-                obj.latitude = e.latLng.lat();
-                obj.longitude = e.latLng.lng();
+                //console.log(e.latLng.lat()); 
+                //var obj = {};
+                //obj.latitude = results[0].geometry.location.lat();
+                //obj.longitude = results[0].geometry.location.lng();
                 
                 $(".typ5-1").html("");
                 $(".typ5-2").html("");
                 $(".typ5-3").html("");
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
+                //alert("try2");
             
                 $.ajax({
                     method: "post",
                     url: "connect_feng_shui.php",
                     data: {
-                        lat:e.latLng.lat(),
-                        lng:e.latLng.lng()
+                        lat:results[0].geometry.location.lat(),
+                        lng:results[0].geometry.location.lng()
                       
                       
                     },
