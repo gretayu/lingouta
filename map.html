@@ -63,14 +63,16 @@
 
     <!--Search and Filter-->
     <section class="full-section dark">
-        <div class="center search">
+       <div class="center search ui form">
             <div class="container row">
-                <div class="field">
-                    <label><h4>找寶位</h4></label>
-                    <input id="inputaddress" type="text" name="search" placeholder="search">
+                <div class="inline field">
+                    <input id="inputaddress" type="text" name="search" placeholder="找寶位">
                 </div>
-                <div>
-                    <button class="ui button grey btn ui-btn ui-btn-small ui-icon-search ui-shadow ui-corner-all ui-btn-icon-left ui-btn-inline" type="submit" id="searchbutton"></button>
+
+                <div class="ui buttons" style="position: relative; top: 2.5px; left: 2px;">
+                  <button class="ui button" id="searchbutton"><i class="search icon"></i></button>
+                  <div class="or" data-text="或"></div>
+                  <button class="ui  button"><i class="crosshairs icon"></i>定位</button>
                 </div>
             </div>
         </div>
