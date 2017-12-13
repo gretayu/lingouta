@@ -1,6 +1,7 @@
 <!--setting the map>
 var map;
 var markers = [];
+var result_type;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('realmap'), {
@@ -56,14 +57,18 @@ function initMap() {
                     $(".typ5-3").html(output.content_3);
                     $(".typ5-4").html(output.content_4);
                     $("#finalresult").html(output.content_5);
+                    
+                    //add to the history list
+                    var myposition = e.latLng;
+                    var historydata = e.latLng;
+                    result_type = "---> " + output.content_5;
+                    //alert(historydata);
+                    addItem(historydata,result_type);
 				}
             }
         })
-        //add to the history list
-        var myposition = e.latLng;
-        var historydata = '(' + e.latLng + ')';
-        //alert(historydata);
-        addItem(historydata);
+        
+        
     });
 
 }
@@ -120,10 +125,6 @@ $(document).ready(function () {
                 placeMarkerAndPanTo(myLatlng, map);
                 //set the suitable zoom
                 map.setZoom(15);
-                //alert("try0");
-                //add to the history list 
-                addItem(address);
-                //alert("try1");
                 //Fandel call for the 風水
                 
                 //call for the feng shui
@@ -160,6 +161,10 @@ $(document).ready(function () {
                             $(".typ5-3").html(output.content_3);
                             $(".typ5-4").html(output.content_4);
                             $("#finalresult").html(output.content_5);
+
+                            result_type = "---> " + output.content_5;
+                            //add to the history list 
+                            addItem(address,result_type);
                         }
                     }
                 })
@@ -170,11 +175,13 @@ $(document).ready(function () {
     })
 });
 
-function addItem(e) {
+function addItem(e,f) {
     var ul = document.getElementById("historylist");
     var li = document.createElement("li");
     //alert('here333!');
     li.appendChild(document.createTextNode(e));
+    ul.appendChild(li);
+    li.appendChild(document.createTextNode(f));
     ul.appendChild(li);
 }
 <!--end of the process of searching by address>
