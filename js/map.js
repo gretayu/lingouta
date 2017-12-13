@@ -2,6 +2,7 @@
 var map;
 var markers = [];
 var result_type;
+var research_type;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('realmap'), {
@@ -181,8 +182,127 @@ function addItem(e,f) {
     //alert('here333!');
     li.appendChild(document.createTextNode(e));
     ul.appendChild(li);
+    
+    li.onclick = function() { // Note this is a function
+        var es =(JSON.stringify(e)).substring(1,(JSON.stringify(e)).length-1);
+        var research;
+        //alert(e);
+        
+        if(JSON.stringify(e)[0]=="{"){
+            //alert("type==0");
+            var lsplit = new Array();
+            lsplit = es.split(",");
+            
+            var fsplit1 = new Array();
+            var fsplit2 = new Array();
+            fsplit1 = lsplit[0].split(":");
+            fsplit2 = lsplit[1].split(":");
+            
+            research = fsplit1[1]+","+fsplit2[1];
+            research_type=1;
+        }
+        else if(e[0]=="("){
+            //alert("type==1");
+            var lsplit = new Array();
+            lsplit = es.split(",");
+            
+            research = lsplit[0].substring(1,lsplit[0].length)+","+lsplit[1].substring(0,lsplit[1].length-1);
+            research_type=1;
+        }
+        else{
+            research = es;
+            research_type=2;
+        }
+        
+        //alert(research);
+        
+        
+        //get the input
+        var address = research;
+
+        //new a Geocoder
+        var geocoder = new google.maps.Geocoder();
+        //decode
+
+
+        geocoder.geocode({
+            'address': address
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                //                alert(results[0].geometry.location.lat());
+                //                alert(results[0].geometry.location.lng());
+                var myLatlng = {
+                    lat: results[0].geometry.location.lat(),
+                    lng: results[0].geometry.location.lng()
+                };
+
+                //move the center of the map to the position
+                map.setCenter(myLatlng);
+                //place a pin there
+                placeMarkerAndPanTo(myLatlng, map);
+                //set the suitable zoom
+                map.setZoom(15);
+                //Fandel call for the 風水
+                
+                //call for the feng shui
+                //console.log(e.latLng.lat()); 
+                //var obj = {};
+                //obj.latitude = results[0].geometry.location.lat();
+                //obj.longitude = results[0].geometry.location.lng();
+                
+                $(".typ5-1").html("");
+                $(".typ5-2").html("");
+                $(".typ5-3").html("");
+                $(".typ5-4").html("");
+                $("#finalresult").html("");
+                //alert("try2");
+            
+                $.ajax({
+                    method: "post",
+                    url: "connect_feng_shui.php",
+                    data: {
+                        lat:results[0].geometry.location.lat(),
+                        lng:results[0].geometry.location.lng()
+                      
+                      
+                    },
+                    success: function(datas) {
+                    var output = JSON.parse(datas);
+                        //output.content_1to4 -> the peom of the type of feng shui 
+                        //output.content_5 -> the judgement of chosen place
+                        console.log(output);
+                        if(output.content!=""){
+                            /*更新map.html中的詩句顯示*/
+                            $(".typ5-1").html(output.content_1);
+                            $(".typ5-2").html(output.content_2);
+                            $(".typ5-3").html(output.content_3);
+                            $(".typ5-4").html(output.content_4);
+                            $("#finalresult").html(output.content_5);
+
+                            result_type = "---> " + output.content_5;
+                            var addr = new Array();
+                            addr = address.split(",");
+                            if(research_type==1){
+                                address="("+addr[0]+", "+addr[1]+")";
+                            }
+                            //add to the history list 
+                            addItem(address,result_type);
+                        }
+                    }
+                })
+            } else {
+                alert('Not found!');
+            }
+        });
+        
+    };
+  
     li.appendChild(document.createTextNode(f));
     ul.appendChild(li);
+    
+
+    
 }
 <!--end of the process of searching by address>
 
