@@ -462,9 +462,8 @@ nav.hiddentop{
 
 .intro {
 	padding: 20px 5vw;
-	width: 80vw;
-	position: absolute;
-	top: 35vw;
+	position: relative;
+	top: -20vw;
 	background: rgba(225,230,235,0.75);
 	text-align: center;
 	border-top: 3px solid rgba(106,130,145,0.4);
