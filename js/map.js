@@ -3,6 +3,7 @@ var map;
 var markers = [];
 var result_type;
 var research_type;
+var infoWindow;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('realmap'), {
@@ -12,8 +13,6 @@ function initMap() {
         },
         zoom: 10
     });
-
-    
     
     map.addListener('click', function (e) {
         //alert(e.latLng);
@@ -98,8 +97,107 @@ function placeMarkerAndPanTo(latLng, map) {
 
 <!--the process of searching by address>
 $(document).ready(function () {
-    $('#searchbutton').click(function () { //when the botton is pressed
+    $('#locationbutton').click(function () { //when the botton is pressed
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var current_latitude = position.coords.latitude; 
+                var current_longitude = position.coords.longitude;
+                //alert(current_latitude);
+                //alert(current_longitude);
+                
+                
+                
+                //get the input
+                var address = current_latitude+","+current_longitude;
 
+                //new a Geocoder
+                var geocoder = new google.maps.Geocoder();
+                //decode
+
+                geocoder.geocode({
+                    'address': address
+                }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                        //                alert(results[0].geometry.location.lat());
+                        //                alert(results[0].geometry.location.lng());
+                        var myLatlng = {
+                            lat: results[0].geometry.location.lat(),
+                            lng: results[0].geometry.location.lng()
+                        };
+
+                        //move the center of the map to the position
+                        map.setCenter(myLatlng);
+                        //place a pin there
+                        placeMarkerAndPanTo(myLatlng, map);
+                        //set the suitable zoom
+                        map.setZoom(15);
+                        //Fandel call for the 風水
+                        
+                        //call for the feng shui
+                        
+                        $(".typ5-1").html("");
+                        $(".typ5-2").html("");
+                        $(".typ5-3").html("");
+                        $(".typ5-4").html("");
+                        $("#finalresult").html("");
+                        //alert("try2");
+                    
+                        $.ajax({
+                            method: "post",
+                            url: "connect_feng_shui.php",
+                            data: {
+                                lat:results[0].geometry.location.lat(),
+                                lng:results[0].geometry.location.lng()
+                              
+                              
+                            },
+                            success: function(datas) {
+                            var output = JSON.parse(datas);
+                                //output.content_1to4 -> the peom of the type of feng shui 
+                                //output.content_5 -> the judgement of chosen place
+                                console.log(output);
+                                if(output.content!=""){
+                                    /*更新map.html中的詩句顯示*/
+                                    $(".typ5-1").html(output.content_1);
+                                    $(".typ5-2").html(output.content_2);
+                                    $(".typ5-3").html(output.content_3);
+                                    $(".typ5-4").html(output.content_4);
+                                    $("#finalresult").html(output.content_5);
+
+                                    result_type = "---> " + output.content_5;
+                                    var addr = new Array();
+                                    addr = address.split(",");
+                                    address="("+addr[0]+", "+addr[1]+")";
+                                    //add to the history list 
+                                    addItem(address,result_type);
+                                }
+                            }
+                        })
+                    } else {
+                        //alert('Not found!');
+                        $(".typ5-1").html("Not found...");
+                        $(".typ5-2").html("");
+                        $(".typ5-3").html("");
+                        $(".typ5-4").html("");
+                        $("#finalresult").html("");
+                    }
+                });
+                
+            }, function() {
+                alert("please change to https://");
+                //handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            // handleLocationError(false, infoWindow, map.getCenter());
+        }
+        
+    })
+    
+    
+    $('#searchbutton').click(function () { //when the botton is pressed
         //get the input
         var address = $("input[id='inputaddress']").val();
 
@@ -170,11 +268,17 @@ $(document).ready(function () {
                     }
                 })
             } else {
-                alert('Not found!');
+                ///alert('Not found!');
+                $(".typ5-1").html("Not found...");
+                $(".typ5-2").html("");
+                $(".typ5-3").html("");
+                $(".typ5-4").html("");
+                $("#finalresult").html("");
             }
         });
     })
 });
+
 
 function addItem(e,f) {
     var ul = document.getElementById("historylist");
@@ -292,7 +396,12 @@ function addItem(e,f) {
                     }
                 })
             } else {
-                alert('Not found!');
+                //alert('Not found!');
+                $(".typ5-1").html("Not found...");
+                $(".typ5-2").html("");
+                $(".typ5-3").html("");
+                $(".typ5-4").html("");
+                $("#finalresult").html("");
             }
         });
         
