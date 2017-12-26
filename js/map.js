@@ -7,6 +7,7 @@ var infoWindow;
 var data_get;
 var dataset = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 var empty = [[0,0,0],[0,0,0],[0,0,0]];
+var address;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('realmap'), {
@@ -48,14 +49,14 @@ function initMap() {
             temp_lat=transform(surrounding,parseFloat(e.latLng.lat()),1);
             temp_lng=transform(surrounding,parseFloat(e.latLng.lng()),2);
             
-            fsearching(temp_lat,temp_lng,surrounding);
+            fsearching(temp_lat,temp_lng,surrounding,1);
         }
         
         
     });
 }
 
-function fsearching(temp_lat,temp_lng,surrounding){
+function fsearching(temp_lat,temp_lng,surrounding,renew_type){
     $.ajax({
         method: "post",
         url: "connect_feng_shui.php",
@@ -84,14 +85,14 @@ function fsearching(temp_lat,temp_lng,surrounding){
                 //console.log(surrounding+" => "+dataset[0][surrounding]);
                 
                 if(data_get==9){
-                    analysis(temp_lat,temp_lng);
+                    analysis(temp_lat,temp_lng,renew_type);
                 }
             }
         }
     })
 }
 
-function analysis(temp_lat,temp_lng){
+function analysis(temp_lat,temp_lng,renew_type){
     if(data_get==9){
         
         var obj = {"[0][0]":dataset[0][0],"[0][1]":dataset[0][1],"[0][2]":dataset[0][2],"[0][3]":dataset[0][3],"[0][4]":dataset[0][4],"[0][5]":dataset[0][5],"[0][6]":dataset[0][6],"[0][7]":dataset[0][7],"[0][8]":dataset[0][8],
@@ -131,10 +132,42 @@ function analysis(temp_lat,temp_lng){
                     //add to the history list
                     
                     //var myposition = e.latLng;
-                    var historydata = "(" + temp_lat + "," + temp_lng + ")";
-                    result_type = "---> " + output.content_5;
-                    //alert(historydata);
-                    addItem(historydata,result_type);
+                    if(renew_type==1){
+                        var historydata = "(" + temp_lat + "," + temp_lng + ")";
+                        result_type = "---> " + output.content_5;
+                        //alert(historydata);
+                        addItem(historydata,result_type);
+                    }
+                    else if(renew_type==2){
+                        result_type = "---> " + output.content_5;
+                        var addr = new Array();
+                        addr = address.split(",");
+                        address="("+addr[0]+", "+addr[1]+")";
+                        //add to the history list 
+                        addItem(address,result_type);
+                    }
+                    else if(renew_type==3){
+                        result_type = "---> " + output.content_5;
+                        //add to the history list 
+                        addItem(address,result_type);
+                    }
+                    else if(renew_type==4){
+                        /*
+                        alert(address);
+                        result_type = "---> " + output.content_5;
+                        var addr = new Array();
+                        addr = address.split(",");
+                        if(research_type==1){
+                            address="("+addr[0]+", "+addr[1]+")";
+                        }
+                        //add to the history list 
+                        addItem(address,result_type);
+                        */
+                        var historydata = "(" + temp_lat + "," + temp_lng + ")";
+                        result_type = "---> " + output.content_5;
+                        //alert(historydata);
+                        addItem(historydata,result_type);
+                    }
                     
                     console.log("done!");
                     
@@ -206,7 +239,7 @@ $(document).ready(function () {
                 
                 
                 //get the input
-                var address = current_latitude+","+current_longitude;
+                address = current_latitude+","+current_longitude;
 
                 //new a Geocoder
                 var geocoder = new google.maps.Geocoder();
@@ -240,8 +273,21 @@ $(document).ready(function () {
                         $(".typ5-4").html("");
                         $("#finalresult").html("");
                         //alert("try2");
+                        
+                        data_get=0;
+                        var surrounding;
+                        for(surrounding=0; surrounding<=8; surrounding++){
+                            var temp_lat=results[0].geometry.location.lat();
+                            var temp_lng=results[0].geometry.location.lng();
+                            
+                            temp_lat=transform(surrounding,parseFloat(results[0].geometry.location.lat()),1);
+                            temp_lng=transform(surrounding,parseFloat(results[0].geometry.location.lng()),2);
+                            
+                            fsearching(temp_lat,temp_lng,surrounding,2);
+                        }
 					    
-                        /*$.ajax({
+                        /*
+                        $.ajax({
                             method: "post",
                             url: "connect_feng_shui.php",
                             data: {
@@ -296,7 +342,7 @@ $(document).ready(function () {
     
     $('#searchbutton').click(function () { //when the botton is pressed
         //get the input
-        var address = $("input[id='inputaddress']").val();
+        address = $("input[id='inputaddress']").val();
 
         //new a Geocoder
         var geocoder = new google.maps.Geocoder();
@@ -335,6 +381,18 @@ $(document).ready(function () {
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
                 //alert("try2");
+            
+                data_get=0;
+                var surrounding;
+                for(surrounding=0; surrounding<=8; surrounding++){
+                    var temp_lat=parseFloat(results[0].geometry.location.lat());
+                    var temp_lng=parseFloat(results[0].geometry.location.lng());
+                    
+                    temp_lat=transform(surrounding,parseFloat(results[0].geometry.location.lat()),1);
+                    temp_lng=transform(surrounding,parseFloat(results[0].geometry.location.lng()),2);
+                    
+                    fsearching(temp_lat,temp_lng,surrounding,3);
+                }
             
                 /*$.ajax({
                     method: "post",
@@ -404,16 +462,20 @@ function addItem(e,f) {
         }
         else if(e[0]=="("){
             //alert("type==1");
+            //alert(es);
             var lsplit = new Array();
             lsplit = es.split(",");
             
             research = lsplit[0].substring(1,lsplit[0].length)+","+lsplit[1].substring(0,lsplit[1].length-1);
+            //alert(research);
             research_type=1;
         }
         else{
             research = es;
             research_type=2;
         }
+        
+        //console.log("type="+research_type);
         
         //alert(research);
         
@@ -459,6 +521,19 @@ function addItem(e,f) {
                 $("#finalresult").html("");
                 //alert("try2");
             
+            
+                data_get=0;
+                var surrounding;
+                for(surrounding=0; surrounding<=8; surrounding++){
+                    var temp_lat=parseFloat(results[0].geometry.location.lat());
+                    var temp_lng=parseFloat(results[0].geometry.location.lng());
+                    
+                    temp_lat=transform(surrounding,parseFloat(results[0].geometry.location.lat()),1);
+                    temp_lng=transform(surrounding,parseFloat(results[0].geometry.location.lng()),2);
+                    
+                    fsearching(temp_lat,temp_lng,surrounding,4);
+                }
+                
                 /*$.ajax({
                     method: "post",
                     url: "connect_feng_shui.php",
