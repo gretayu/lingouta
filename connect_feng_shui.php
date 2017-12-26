@@ -5,13 +5,16 @@ mysql_select_db("wp2017_groupl") or die("data fail");
 
 //$id = $_POST['account'];
 //$pw = $_POST['password'];
+$typ= $_POST['type'];
 $lat= $_POST['lat'];
 $lng= $_POST['lng'];
+$datas= $_POST['data'];
 
 //$lat= $_POST['latitude'];
 //$lng= $_POST['longitude'];
 $lat_rd=round(doubleval($lat),4);
 $lng_rd=round(doubleval($lng),4);
+$typp=intval($typ);
 /*
 $sql = "SELECT * FROM Feng_Shui where xmin <= '$lat_rd' and xmax > '$lat_rd' and ymin <= '$lng_rd' and ymax > '$lng_rd' " ; //to rewrite
 $result = mysql_query($sql)or die("failll");
@@ -19,47 +22,60 @@ $array = @mysql_fetch_array($result);
 $dem = intval($array[9])
 */
 
+$table_number;
+if($typp==1 && $lat_rd>=22.0 && $lat_rd<25.0)
+{
+    $sql = "SELECT * FROM Feng_Shui_table_mapping where ymin < '$lat_rd' and ymax >= '$lat_rd' and xmin < '$lng_rd' and xmax >= '$lng_rd' ";
+        
+    $results = mysql_query($sql)or die("failllls");
+    $array = @mysql_fetch_array($results);
+    
+    $table_number = "Feng_Shui_$array[4]";
+}
 
-//$type = intval($array[3]);
 
-$temp;
+if($typp==1 && $lat_rd>=22.0 && $lat_rd<25.0){
+	$sql = "SELECT * FROM $table_number where ymin < '$lat_rd' and ymax >= '$lat_rd' and xmin < '$lng_rd' and xmax >= '$lng_rd' ";
+        
+	$results = mysql_query($sql)or die("faillls");
+	$array = @mysql_fetch_array($results);
+	
+	
+	$road0 = intval($array[4]);
+	$waterway0 = intval($array[5]);
+	$water0 = intval($array[6]);
+	$grass0 = intval($array[7]);
+	$mountain0 = intval($array[8]);
+	$dem0 = intval($array[9]);
+	
+	echo json_encode(array('content_1' => $road0, 'content_2' => $waterway0, 'content_3' => $water0, 'content_4' => $grass0, 'content_5' => $mountain0, 'content_6' => $dem0));
+
+}
+
+$prepro;
+if($typp==2)
+{
+    $dataset = json_decode($datas, true);
+    
+    for($i=0; $i<=8; $i++)
+    {
+        $road[$i] = $dataset["[0][$i]"];
+        $waterway[$i] = $dataset["[1][$i]"];
+        $water[$i] = $dataset["[2][$i]"];
+        $grass[$i] = $dataset["[3][$i]"];
+        $mountain[$i] = $dataset["[4][$i]"];
+        $dem[$i] = $dataset["[5][$i]"];
+    }
+    
+    //echo json_encode(array('content_1' => $road[0], 'content_2' => 0, 'content_3' => 0, 'content_4' => 0, 'content_5' => 0, 'content_6' => 0));
+    $prepro=1;
+}
 
 //below are to rewrite
 //get the data of its 8 direction
-if($lat_rd>=22.0 && $lat_rd<25.0)
+if($typp==2 && $prepro==1)
 {
-    $lat_relative = Array($lat_rd, $lat_rd+0.0002, $lat_rd+0.0002, $lat_rd, $lat_rd-0.0002, $lat_rd-0.0002, $lat_rd-0.0002, $lat_rd, $lat_rd+0.0002);
-    $lng_relative = Array($lng_rd, $lng_rd, $lng_rd+0.0002, $lng_rd+0.0002, $lng_rd+0.0002, $lng_rd, $lng_rd-0.0002, $lng_rd-0.0002, $lng_rd-0.0002);
-    $sql = array();
-    $results = array();
     
-    
-
-    for($i=0; $i<=8; $i++)
-    {
-        //echo $lat_relative[$i];
-        
-        $sql = "SELECT * FROM Feng_Shui where ymin < '$lat_relative[$i]' and ymax >= '$lat_relative[$i]' and xmin < '$lng_relative[$i]' and xmax >= '$lng_relative[$i]' ";
-        
-        $results = mysql_query($sql)or die("faillls");
-        $array = @mysql_fetch_array($results);
-        
-        //$sql = "SELECT * FROM Feng_Shui where ymin < 22.9999 and ymax >= 22.9999 and xmin < 120.2001 and xmax >= 120.2001 ";
-        //$results = mysql_query($sql)or die("faillls");
-        //$array = @mysql_fetch_array($results);
-
-
-        $temp = $array[4];
-		
-        $road[$i] = intval($array[4]);
-        $waterway[$i] = intval($array[5]);
-        $water[$i] = intval($array[6]);
-        $grass[$i] = intval($array[7]);
-        $mountain[$i] = intval($array[8]);
-        $dem[$i] = intval($array[9]);
-    
-        
-    }
     //echo $lng;
     for($i=1; $i<=8; $i++)
     {
@@ -84,7 +100,7 @@ if($lat_rd>=22.0 && $lat_rd<25.0)
 }
 
 //analysis feng shui type
-if($dem>=0)
+if($typp==2 && $dem>=0)
 {
     $type=0;
     if ( ($mountain[8]+$mountain[1]+$mountain[2]>=1) and ($mountain[4]+$mountain[5]+$mountain[6]>=1) and ($water[2]+$water[3]+$water[4]>=1) and ($water[6]+$water[7]+$water[8]>=1))
@@ -447,7 +463,7 @@ if($dem>=0)
     }
 }
 
-if($type >= 0)
+if($typp==2 && $type >= 0)
 {
     
     mysql_query("SET NAMES 'utf8'"); 
@@ -469,6 +485,7 @@ if($type >= 0)
     //echo json_encode(array('0' => $road[0], '1' => $road[1], '2' => $road[2], '3' => $road[3], '4' => $road[4], '5' => $road[5], '6' => $road[6], '7' => $road[7], '8' => $road[8]));
     //echo json_encode(array('0' => $waterway[0], '1' => $waterway[1], '2' => $waterway[2], '3' => $waterway[3], '4' => $waterway[4], '5' => $waterway[5], '6' => $waterway[6], '7' => $waterway[7], '8' => $waterway[8]));
     //echo json_encode(array('type' => $type , 'type' => $type);
+    
     echo json_encode(array('content_1' => $content_1, 'content_2' => $content_2, 'content_3' => $content_3, 'content_4' => $content_4, 'content_5' => $content_5));
 }
 
