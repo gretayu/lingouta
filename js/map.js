@@ -4,6 +4,9 @@ var markers = [];
 var result_type;
 var research_type;
 var infoWindow;
+var data_get;
+var dataset = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+var empty = [[0,0,0],[0,0,0],[0,0,0]];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('realmap'), {
@@ -35,43 +38,137 @@ function initMap() {
         $(".typ5-3").html("");
         $(".typ5-4").html("");
         $("#finalresult").html("");
-	
+
+        data_get=0;
+        var surrounding;
+        for(surrounding=0; surrounding<=8; surrounding++){
+			var temp_lat=e.latLng.lat();
+			var temp_lng=e.latLng.lng();
+			
+            temp_lat=transform(surrounding,parseFloat(e.latLng.lat()),1);
+            temp_lng=transform(surrounding,parseFloat(e.latLng.lng()),2);
+            
+            fsearching(temp_lat,temp_lng,surrounding);
+        }
+        
+        
+    });
+}
+
+function fsearching(temp_lat,temp_lng,surrounding){
+    $.ajax({
+        method: "post",
+        url: "connect_feng_shui.php",
+        data: {
+            type:1,
+            lat:temp_lat,
+            lng:temp_lng,
+            data:empty
+          
+        },
+        success: function(datas) {
+        var output = JSON.parse(datas);
+            //output.content_1to4 -> the peom of the type of feng shui 
+            //output.content_5 -> the judgement of chosen place
+            //console.log(output);
+            if(output.content!=""){
+                data_get++;
+                //console.log(data_get);
+                dataset[0][surrounding]=output.content_1;
+                dataset[1][surrounding]=output.content_2;
+                dataset[2][surrounding]=output.content_3;
+                dataset[3][surrounding]=output.content_4;
+                dataset[4][surrounding]=output.content_5;
+                dataset[5][surrounding]=output.content_6;
+                
+                //console.log(surrounding+" => "+dataset[0][surrounding]);
+                
+                if(data_get==9){
+                    analysis(temp_lat,temp_lng);
+                }
+            }
+        }
+    })
+}
+
+function analysis(temp_lat,temp_lng){
+    if(data_get==9){
+        
+        var obj = {"[0][0]":dataset[0][0],"[0][1]":dataset[0][1],"[0][2]":dataset[0][2],"[0][3]":dataset[0][3],"[0][4]":dataset[0][4],"[0][5]":dataset[0][5],"[0][6]":dataset[0][6],"[0][7]":dataset[0][7],"[0][8]":dataset[0][8],
+                    "[1][0]":dataset[1][0],"[1][1]":dataset[1][1],"[1][2]":dataset[1][2],"[1][3]":dataset[1][3],"[1][4]":dataset[1][4],"[1][5]":dataset[1][5],"[1][6]":dataset[1][6],"[1][7]":dataset[1][7],"[1][8]":dataset[1][8],
+                    "[2][0]":dataset[2][0],"[2][1]":dataset[2][1],"[2][2]":dataset[2][2],"[2][3]":dataset[2][3],"[2][4]":dataset[2][4],"[2][5]":dataset[2][5],"[2][6]":dataset[2][6],"[2][7]":dataset[2][7],"[2][8]":dataset[2][8],
+                    "[3][0]":dataset[3][0],"[3][1]":dataset[3][1],"[3][2]":dataset[3][2],"[3][3]":dataset[3][3],"[3][4]":dataset[3][4],"[3][5]":dataset[3][5],"[3][6]":dataset[3][6],"[3][7]":dataset[3][7],"[3][8]":dataset[3][8],
+                    "[4][0]":dataset[4][0],"[4][1]":dataset[4][1],"[4][2]":dataset[4][2],"[4][3]":dataset[4][3],"[4][4]":dataset[4][4],"[4][5]":dataset[4][5],"[4][6]":dataset[4][6],"[4][7]":dataset[4][7],"[4][8]":dataset[4][8],
+                    "[5][0]":dataset[5][0],"[5][1]":dataset[5][1],"[5][2]":dataset[5][2],"[5][3]":dataset[5][3],"[5][4]":dataset[5][4],"[5][5]":dataset[5][5],"[5][6]":dataset[5][6],"[5][7]":dataset[5][7],"[5][8]":dataset[5][8]}
+        var sendobj = JSON.stringify(obj);
+        //alert(sendobj);
+
         $.ajax({
-			method: "post",
-			url: "connect_feng_shui.php",
-			data: {
-                lat:e.latLng.lat(),
-                lng:e.latLng.lng()
-              
+            method: "post",
+            url: "connect_feng_shui.php",
+            data: {
+                type:2,
+                lat:23.0,
+                lng:20.0,
+                data:sendobj
               
             },
-			success: function(datas) {
+            success: function(datas) {
             var output = JSON.parse(datas);
                 //output.content_1to4 -> the peom of the type of feng shui 
                 //output.content_5 -> the judgement of chosen place
                 console.log(output);
-				if(output.content!=""){
-					/*更新map.html中的詩句顯示*/
+                if(output.content!=""){
+                    //更新map.html中的詩句顯示
+                    
                     $(".typ5-1").html(output.content_1);
                     $(".typ5-2").html(output.content_2);
                     $(".typ5-3").html(output.content_3);
                     $(".typ5-4").html(output.content_4);
                     $("#finalresult").html(output.content_5);
                     
+                    
                     //add to the history list
-                    var myposition = e.latLng;
-                    var historydata = e.latLng;
+                    
+                    //var myposition = e.latLng;
+                    var historydata = "(" + temp_lat + "," + temp_lng + ")";
                     result_type = "---> " + output.content_5;
                     //alert(historydata);
                     addItem(historydata,result_type);
-				}
+                    
+                    console.log("done!");
+                    
+                }
             }
         })
-        
-        
-    });
-
+    }
 }
+
+function transform(surr,value,typ){
+    if(typ==1){
+        if(surr==4 || surr==5 || surr==6){
+            return parseFloat(value)-0.002;
+        }
+        else if(surr==0 || surr==3 || surr==7){
+            return parseFloat(value);
+        }
+        else if(surr==1 || surr==2 || surr==8){
+            return parseFloat(value)+0.002;
+        }
+    }
+    else{
+        if(surr==6 || surr==7 || surr==8){
+            return parseFloat(value)-0.002;
+        }
+        else if(surr==0 || surr==1 || surr==5){
+            return parseFloat(value);
+        }
+        else if(surr==2 || surr==3 || surr==4){
+            return parseFloat(value)+0.002;
+        }
+    }
+}
+
 
 function placeMarkerAndPanTo(latLng, map) {
     var img = {
@@ -143,8 +240,8 @@ $(document).ready(function () {
                         $(".typ5-4").html("");
                         $("#finalresult").html("");
                         //alert("try2");
-                    
-                        $.ajax({
+					    
+                        /*$.ajax({
                             method: "post",
                             url: "connect_feng_shui.php",
                             data: {
@@ -159,7 +256,7 @@ $(document).ready(function () {
                                 //output.content_5 -> the judgement of chosen place
                                 console.log(output);
                                 if(output.content!=""){
-                                    /*更新map.html中的詩句顯示*/
+                                    //更新map.html中的詩句顯示
                                     $(".typ5-1").html(output.content_1);
                                     $(".typ5-2").html(output.content_2);
                                     $(".typ5-3").html(output.content_3);
@@ -174,7 +271,7 @@ $(document).ready(function () {
                                     addItem(address,result_type);
                                 }
                             }
-                        })
+                        })*/
                     } else {
                         //alert('Not found!');
                         $(".typ5-1").html("Not found...");
@@ -239,7 +336,7 @@ $(document).ready(function () {
                 $("#finalresult").html("");
                 //alert("try2");
             
-                $.ajax({
+                /*$.ajax({
                     method: "post",
                     url: "connect_feng_shui.php",
                     data: {
@@ -254,7 +351,7 @@ $(document).ready(function () {
                         //output.content_5 -> the judgement of chosen place
                         console.log(output);
                         if(output.content!=""){
-                            /*更新map.html中的詩句顯示*/
+                            //更新map.html中的詩句顯示
                             $(".typ5-1").html(output.content_1);
                             $(".typ5-2").html(output.content_2);
                             $(".typ5-3").html(output.content_3);
@@ -266,7 +363,7 @@ $(document).ready(function () {
                             addItem(address,result_type);
                         }
                     }
-                })
+                })*/
             } else {
                 ///alert('Not found!');
                 $(".typ5-1").html("Not found...");
@@ -362,7 +459,7 @@ function addItem(e,f) {
                 $("#finalresult").html("");
                 //alert("try2");
             
-                $.ajax({
+                /*$.ajax({
                     method: "post",
                     url: "connect_feng_shui.php",
                     data: {
@@ -377,7 +474,7 @@ function addItem(e,f) {
                         //output.content_5 -> the judgement of chosen place
                         console.log(output);
                         if(output.content!=""){
-                            /*更新map.html中的詩句顯示*/
+                            //更新map.html中的詩句顯示
                             $(".typ5-1").html(output.content_1);
                             $(".typ5-2").html(output.content_2);
                             $(".typ5-3").html(output.content_3);
@@ -394,7 +491,7 @@ function addItem(e,f) {
                             addItem(address,result_type);
                         }
                     }
-                })
+                })*/
             } else {
                 //alert('Not found!');
                 $(".typ5-1").html("Not found...");
