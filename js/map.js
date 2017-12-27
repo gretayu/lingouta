@@ -15,6 +15,8 @@ function initMap() {
         window.location = "https:" + restOfUrl;
     }
     
+    document.getElementById("loader").style.display="none";
+    
     map = new google.maps.Map(document.getElementById('realmap'), {
         center: {
             lat: 22.994234471309202,
@@ -44,6 +46,7 @@ function initMap() {
         $(".typ5-3").html("");
         $(".typ5-4").html("");
         $("#finalresult").html("");
+        document.getElementById("loader").style.display="";
 
         data_get=0;
         var surrounding;
@@ -132,6 +135,7 @@ function analysis(temp_lat,temp_lng,renew_type){
                     $(".typ5-3").html(output.content_3);
                     $(".typ5-4").html(output.content_4);
                     $("#finalresult").html(output.content_5);
+                    document.getElementById("loader").style.display="none";
                     
                     
                     //add to the history list
@@ -277,6 +281,7 @@ $(document).ready(function () {
                         $(".typ5-3").html("");
                         $(".typ5-4").html("");
                         $("#finalresult").html("");
+                        document.getElementById("loader").style.display="";
                         //alert("try2");
                         
                         data_get=0;
@@ -330,6 +335,7 @@ $(document).ready(function () {
                         $(".typ5-3").html("");
                         $(".typ5-4").html("");
                         $("#finalresult").html("");
+                        document.getElementById("loader").style.display="none";
                     }
                 });
                 
@@ -389,6 +395,7 @@ $(document).ready(function () {
                 $(".typ5-3").html("");
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
+                document.getElementById("loader").style.display="";
                 //alert("try2");
             
                 data_get=0;
@@ -438,6 +445,7 @@ $(document).ready(function () {
                 $(".typ5-3").html("");
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
+                document.getElementById("loader").style.display="none";
             }
         });
     })
@@ -528,6 +536,7 @@ function addItem(e,f) {
                 $(".typ5-3").html("");
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
+                document.getElementById("loader").style.display="";
                 //alert("try2");
             
             
@@ -583,6 +592,7 @@ function addItem(e,f) {
                 $(".typ5-3").html("");
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
+                document.getElementById("loader").style.display="none";
             }
         });
         
