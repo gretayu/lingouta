@@ -180,24 +180,24 @@ function analysis(temp_lat,temp_lng,renew_type){
 function transform(surr,value,typ){
     if(typ==1){
         if(surr==4 || surr==5 || surr==6){
-            return parseFloat(value)-0.002;
+            return parseFloat(value)-0.0002;
         }
         else if(surr==0 || surr==3 || surr==7){
             return parseFloat(value);
         }
         else if(surr==1 || surr==2 || surr==8){
-            return parseFloat(value)+0.002;
+            return parseFloat(value)+0.0002;
         }
     }
     else{
         if(surr==6 || surr==7 || surr==8){
-            return parseFloat(value)-0.002;
+            return parseFloat(value)-0.0002;
         }
         else if(surr==0 || surr==1 || surr==5){
             return parseFloat(value);
         }
         else if(surr==2 || surr==3 || surr==4){
-            return parseFloat(value)+0.002;
+            return parseFloat(value)+0.0002;
         }
     }
 }
