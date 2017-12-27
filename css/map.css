@@ -1,58 +1,45 @@
 @import url(//fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
 
+svg {
+  display: block;
+}
+path{
+  fill:#b52c2e;
+}
+
+
 #loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  margin: -75px 0 0 -75px;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Add animation to "page content" */
-.animate-bottom {
   position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
+  left: 50%;
+  top: 30%;
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+  margin: -75px 0 0 -75px;
+
+-webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
 
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(500px) }
+  50% { -webkit-transform: perspective(500px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(500px) rotateY(180deg)  }
 }
 
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
-#myDiv {
-  display: none;
-  text-align: center;
-}
-
-
-
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(200px) rotateY(180deg);
+    -webkit-transform: perspective(200px) rotateY(180deg) 
+  } 50% { 
+    transform: perspective(200px) rotateY(0deg);
+    -webkit-transform: perspective(200px) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(200px) rotateY(-180deg) ;
+    -webkit-transform: perspective(200px)rotateY(-180deg);
+  }
+}  
+  
 @keyframes typing5-1 {
   0%{width: 0 ;}
   23%{ width: 15em ;}
@@ -89,9 +76,9 @@
   99%{ width: 0em ;}
 }
 #fengshui h4{
-	font-size: 1.5em;
-	line-height: 1.5em;
-	margin: 5px 0;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 5px 0;
 }
 #fengshui h4 {
   width: 15em;
@@ -101,44 +88,44 @@
 }
 
 #fengshui .typ5-1{
-	animation: typing5-1 4s steps(15);
+  animation: typing5-1 4s steps(15);
 }
 #fengshui .typ5-2{
-	animation: typing5-2 4s steps(15);
+  animation: typing5-2 4s steps(15);
 }
 #fengshui .typ5-3{
-	animation: typing5-3 4s steps(15);
+  animation: typing5-3 4s steps(15);
 }
 #fengshui .typ5-4{
-	animation: typing5-4 4s steps(15);
+  animation: typing5-4 4s steps(15);
 }
 #fengshui .typ5-5{
-	animation: typing5-5 4s steps(15);
+  animation: typing5-5 4s steps(15);
 }
 
 #fengshui  .level{
-	font-size: 2.5em;
-	line-height: 3em;
-	width: 3em;
-	z-index: 1000;
+  font-size: 2.5em;
+  line-height: 3em;
+  width: 3em;
+  z-index: 1000;
 }
 @media all and (max-width: 645px) {
-	#fengshui a{
-		display: none;
-	}
-	#fengshui h4{
-	font-size: 1em;
-	line-height: 1.2em;
-	margin: 0;
-	}
-	#fengshui  .level{
-	font-size: 2em;
+  #fengshui a{
+    display: none;
+  }
+  #fengshui h4{
+  font-size: 1em;
+  line-height: 1.2em;
+  margin: 0;
+  }
+  #fengshui  .level{
+  font-size: 2em;
     line-height: 2.2em;
     position: relative;
     top: -1em;
     float: right;
     text-align: end;
-	}
+  }
 }
 #history {
      overflow: scroll;
