@@ -21,6 +21,24 @@ $result = mysql_query($sql)or die("failll");
 $array = @mysql_fetch_array($result);
 $dem = intval($array[9])
 */
+/*
+$table_number;
+if($typp==0 && $lat_rd>=22.0 && $lat_rd<25.0){
+    $lat_relative = Array($lat_rd, $lat_rd+0.0002, $lat_rd+0.0002, $lat_rd, $lat_rd-0.0002, $lat_rd-0.0002, $lat_rd-0.0002, $lat_rd, $lat_rd+0.0002);
+    $lng_relative = Array($lng_rd, $lng_rd, $lng_rd+0.0002, $lng_rd+0.0002, $lng_rd+0.0002, $lng_rd, $lng_rd-0.0002, $lng_rd-0.0002, $lng_rd-0.0002);
+    $sql = array();
+    $results = array();
+    
+    $sql = "SELECT * FROM Feng_Shui_table_mapping where ymin < '$lat_rd' and ymax >= '$lat_rd' and xmin < '$lng_rd' and xmax >= '$lng_rd' ";
+        
+    $results = mysql_query($sql)or die("failllls");
+    $array = @mysql_fetch_array($results);
+    
+    $table_number = "Feng_Shui_$array[4]";
+}
+*/
+
+
 
 $table_number;
 if($typp==1 && $lat_rd>=22.0 && $lat_rd<25.0)
@@ -35,6 +53,7 @@ if($typp==1 && $lat_rd>=22.0 && $lat_rd<25.0)
 
 
 if($typp==1 && $lat_rd>=22.0 && $lat_rd<25.0){
+    //$temp_rd = $lat_rd+0.0002
 	$sql = "SELECT * FROM $table_number where ymin < '$lat_rd' and ymax >= '$lat_rd' and xmin < '$lng_rd' and xmax >= '$lng_rd' ";
         
 	$results = mysql_query($sql)or die("faillls");
