@@ -10,6 +10,11 @@ var empty = [[0,0,0],[0,0,0],[0,0,0]];
 var address;
 
 function initMap() {
+    if (window.location.protocol == "http:") {
+        var restOfUrl = window.location.href.substr(5);
+        window.location = "https:" + restOfUrl;
+    }
+    
     map = new google.maps.Map(document.getElementById('realmap'), {
         center: {
             lat: 22.994234471309202,
@@ -329,7 +334,11 @@ $(document).ready(function () {
                 });
                 
             }, function() {
-                alert("please change to https://");
+                //alert("please change to https://");
+                if (window.location.protocol == "http:") {
+                    var restOfUrl = window.location.href.substr(5);
+                    window.location = "https:" + restOfUrl;
+                }
                 //handleLocationError(true, infoWindow, map.getCenter());
             });
         } else {
