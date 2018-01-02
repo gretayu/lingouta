@@ -8,6 +8,8 @@ var data_get;
 var dataset = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 var empty = [[0,0,0],[0,0,0],[0,0,0]];
 var address;
+var language = 0;
+var output_content = [["","","","",""],["","","","",""]];
 
 function initMap() {
     if (window.location.protocol == "http:") {
@@ -46,6 +48,11 @@ function initMap() {
         $(".typ5-3").html("");
         $(".typ5-4").html("");
         $("#finalresult").html("");
+        $("#feng_typ5-1").removeClass("typ5-1");
+        $("#feng_typ5-2").removeClass("typ5-2");
+        $("#feng_typ5-3").removeClass("typ5-3");
+        $("#feng_typ5-4").removeClass("typ5-4");
+        $("#finalresult").removeClass("typ5-5");
         document.getElementById("loader").style.display="";
 
         data_get=0;
@@ -129,15 +136,9 @@ function analysis(temp_lat,temp_lng,renew_type){
                 console.log(output);
                 if(output.content!=""){
                     //更新map.html中的詩句顯示
+                    get_output(output);
                     
-                    $(".typ5-1").html(output.content_1);
-                    $(".typ5-2").html(output.content_2);
-                    $(".typ5-3").html(output.content_3);
-                    $(".typ5-4").html(output.content_4);
-                    $("#finalresult").html(output.content_5);
-                    document.getElementById("loader").style.display="none";
-                    
-                    
+                    show_output();
                     //add to the history list
                     
                     //var myposition = e.latLng;
@@ -184,6 +185,65 @@ function analysis(temp_lat,temp_lng,renew_type){
             }
         })
     }
+}
+
+function get_output(output){
+    output_content[0][0]=output.content_1;
+    output_content[0][1]=output.content_2;
+    output_content[0][2]=output.content_3;
+    output_content[0][3]=output.content_4;
+    output_content[0][4]=output.content_5;
+    output_content[1][0]=output.content_21;
+    output_content[1][1]=output.content_22;
+    output_content[1][2]=output.content_23;
+    output_content[1][3]=output.content_24;
+    output_content[1][4]=output.content_25;
+}
+
+function show_output(){
+    document.getElementById("loader").style.display="none";
+    if(language==0){
+        $("#feng_typ5-1").html(output_content[0][0]);
+        $("#feng_typ5-2").html(output_content[0][1]);
+        $("#feng_typ5-3").html(output_content[0][2]);
+        $("#feng_typ5-4").html(output_content[0][3]);
+        $("#finalresult").html(output_content[0][4]);
+        
+        document.getElementById("feng_typ5-1").style.fontSize = "1.5em";
+        document.getElementById("feng_typ5-2").style.fontSize = "1.5em";
+        document.getElementById("feng_typ5-3").style.fontSize = "1.5em";
+        document.getElementById("feng_typ5-4").style.fontSize = "1.5em";
+        document.getElementById("finalresult").style.fontSize = "2.5em";
+        document.getElementById("finalresult").style.width = "3em";
+    }
+    else{
+        $("#feng_typ5-1").html(output_content[1][0]);
+        $("#feng_typ5-2").html(output_content[1][1]);
+        $("#feng_typ5-3").html(output_content[1][2]);
+        $("#feng_typ5-4").html(output_content[1][3]);
+        $("#finalresult").html(output_content[1][4]);
+        
+        document.getElementById("feng_typ5-1").style.fontSize = "0.8em";
+        document.getElementById("feng_typ5-2").style.fontSize = "0.8em";
+        document.getElementById("feng_typ5-3").style.fontSize = "0.8em";
+        document.getElementById("feng_typ5-4").style.fontSize = "0.8em";
+        document.getElementById("finalresult").style.fontSize = "1.0em";
+        document.getElementById("finalresult").style.width = "6em";
+    }
+    
+    /*
+    $("#feng_typ5-1").html(output.content_1);
+    $("#feng_typ5-2").html(output.content_2);
+    $("#feng_typ5-3").html(output.content_3);
+    $("#feng_typ5-4").html(output.content_4);
+    $("#finalresult").html(output.content_5);
+    */
+    
+    $("#feng_typ5-1").addClass("typ5-1");
+    $("#feng_typ5-2").addClass("typ5-2");
+    $("#feng_typ5-3").addClass("typ5-3");
+    $("#feng_typ5-4").addClass("typ5-4");
+    $("#finalresult").addClass("typ5-5");
 }
 
 function transform(surr,value,typ){
@@ -612,6 +672,10 @@ $(document).ready(function () {
         //when the 'clean' buttom is pressed
         DeleteMarkers(); //call the function too clean the markers
     });
+    
+    $("#translator").click(function(){
+        Translation();
+    });
 
 })
 <!--end of the enent of cleaning the history>
@@ -624,4 +688,17 @@ function DeleteMarkers() {
     markers = [];
     //delete the list
     $('#historylist li').remove();
+}
+
+function Translation() {
+    $(".typ5-1").html("");
+    $(".typ5-2").html("");
+    $(".typ5-3").html("");
+    $(".typ5-4").html("");
+    $("#finalresult").html("");
+    document.getElementById("loader").style.display="";
+    
+    language=1-language;
+    
+    show_output();
 }
