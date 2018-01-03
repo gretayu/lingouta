@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+@import url('https://fonts.googleapis.com/css?family=Bellefair');
 
 svg {
   display: block;
@@ -6,6 +7,7 @@ svg {
 path{
   fill:#b52c2e;
 }
+
 #loader {
   position: relative;
   left: 35%;
@@ -51,8 +53,71 @@ path{
     margin: 0;
   }
 }
-  
-  
+
+#fengshui h4{
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 5px 0;
+  width: 16em;
+  font-family: 'cwTeXFangSong', serif;
+}
+#fengshui h4.en{
+  font-size: 1.2em;
+  width: 18em;
+  font-family: 'Bellefair','PT Sans Narrow', sans-serif;
+}
+
+#fengshui  .level{
+  font-size: 2.5em;
+  line-height: 3em;
+  width: 3em;
+  z-index: 1000;
+}
+#fengshui  .level.en{
+  font-size: 2em;
+  line-height: 3em;
+  width: 4.5em;
+}
+@media all and (max-width: 900px) {
+  #fengshui h4{
+    font-size: 1.2em;
+  }
+  #fengshui h4.en{
+    font-size: 1.1em;
+    width: 16em;
+  }
+}
+@media all and (max-width: 645px) {
+  #fengshui a{
+    display: none;
+  }
+  #fengshui h4{
+  font-size: 1em;
+  line-height: 1.2em;
+  }
+  #fengshui h4.en{
+  font-size: 1em;
+  line-height: 1.2em;
+  width: 20em;
+  }
+
+  #fengshui  .level{
+  font-size: 2em;
+  position: relative;
+  top: -0.5em;
+  float: right;
+  text-align: end;
+  }
+
+  #fengshui  .level.en{
+  font-size: 1.4em;
+  width: 4.5em;
+  }
+}
+#history {
+     overflow: scroll;
+}
+/*
 @keyframes typing5-1 {
   0%{width: 0 ;}
   23%{ width: 15em ;}
@@ -88,18 +153,6 @@ path{
   69%{ width: 0em ;}
   99%{ width: 0em ;}
 }
-#fengshui h4{
-  font-size: 1.5em;
-  line-height: 1.5em;
-  margin: 5px 0;
-}
-#fengshui h4 {
-  width: 15em;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: 'cwTeXFangSong', serif;
-}
-
 #fengshui .typ5-1{
   animation: typing5-1 4s steps(15);
 }
@@ -115,31 +168,4 @@ path{
 #fengshui .typ5-5{
   animation: typing5-5 4s steps(15);
 }
-
-#fengshui  .level{
-  font-size: 2.5em;
-  line-height: 3em;
-  width: 3em;
-  z-index: 1000;
-}
-@media all and (max-width: 645px) {
-  #fengshui a{
-    display: none;
-  }
-  #fengshui h4{
-  font-size: 1em;
-  line-height: 1.2em;
-  margin: 0;
-  }
-  #fengshui  .level{
-  font-size: 2em;
-    line-height: 2.2em;
-    position: relative;
-    top: -1em;
-    float: right;
-    text-align: end;
-  }
-}
-#history {
-     overflow: scroll;
-}
+*/
