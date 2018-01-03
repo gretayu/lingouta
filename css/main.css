@@ -128,11 +128,10 @@ div {
 	}
 	.col8-12row1-7 {
 	  grid-column: 1 / 13;
-	  grid-row: 8/ 11;
+	  grid-row: 8/ 13;
 	}
 	.col8-12row8-12 {
-	  grid-column: 1 / 13;
-	  grid-row: 11 / 13;
+		display: none;
 	}
 }
 
