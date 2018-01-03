@@ -38,9 +38,9 @@
             <div role="navigation">
                 <ul id="overlay-nav-menu" class="nav-menu overlay-nav-menu">
                     <li class="nav-link nav-link-deco"></li>
-                    <li class="nav-link"><a href="browse.html">競價網</a></li>
-                    <li class="nav-link"><a href="map.html">風水地圖</a></li>
-                    <li class="nav-link"><a href="about.html">關於我們</a></li>
+                    <li class="nav-link"><a href="browse.html" id="nav_bid">競價網</a></li>
+                    <li class="nav-link"><a href="map.html" id="nav_map">風水地圖</a></li>
+                    <li class="nav-link"><a href="about.html" id="nav_about">關於我們</a></li>
 
                 </ul>
                 <a id="data-toggle-menu" class="overlay-nav-menu-toggle">+</a>
@@ -54,8 +54,8 @@
             </div>
 
             <div id="nav-myaccount" class="hidden">
-                <a class="nav-link" href="membercenter.html">會員中心</a>
-                <a class="nav-link" href="">登出</a>
+                <a class="nav-link" id="nav_mem" href="membercenter.html">會員中心</a>
+                <a class="nav-link" id="nav_logout" href="">登出</a>
             </div>
         </div>
     </nav>
@@ -72,7 +72,7 @@
 
                 <div class="ui buttons" style="position: relative; top: 2.5px; left: 2px;">
                   <button class="ui icon button" id="searchbutton"><i class="search icon"></i></button>
-                  <div class="or" data-text="或"></div>
+                  <div class="or" data-text="Or"></div>
                   <button class="ui icon button" id="locationbutton"><i class="crosshairs icon"></i></button>
                 </div>
             </div>
@@ -82,7 +82,7 @@
             <div class="wrapper" id="map">
                 <div class="col1-7row1-12" id="realmap"><a>地圖</a></div>
                 <!--                //the map-->
-                <div class="col8-12row1-7" id="fengshui"><a>風水詩句</a>
+                <div class="col8-12row1-7" id="fengshui"><a id="fspoem">風水詩句</a>
                     <h4 class="typ5-1" id="feng_typ5-1">國人於坡地，</h4>
                     <h4 class="typ5-2" id="feng_typ5-2">喜前低後高，自低處向上</h4>
                     <h4 class="typ5-3" id="feng_typ5-3">自古以來，</h4>
@@ -101,7 +101,7 @@
                 <!--                //show the results-->
 
                 <div class="col8-12row8-12 light" id="history">
-                    <a>瀏覽紀錄</a>
+                    <a id="nav_history">瀏覽紀錄</a>
                     <ul id="historylist">
                         <li></li>
                         <li></li>
