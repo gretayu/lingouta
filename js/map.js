@@ -215,6 +215,18 @@ function show_output(){
         document.getElementById("feng_typ5-4").style.fontSize = "1.5em";
         document.getElementById("finalresult").style.fontSize = "2.5em";
         document.getElementById("finalresult").style.width = "3em";
+        
+        
+        $("#nav_bid").html("競價網");
+        $("#nav_map").html("風水地圖");
+        $("#nav_about").html("關於我們");
+        $("#nav-signin").html("登入");
+        $("#nav_mem").html("會員中心");
+        $("#nav_logout").html("登出");
+        $("#fspoem").html("風水詩句");
+        $("#nav_history").html("瀏覽紀錄");
+        $("#clean").html("清除");
+        document.getElementsByName("search")[0].placeholder="找寶位";
     }
     else{
         $("#feng_typ5-1").html(output_content[1][0]);
@@ -229,6 +241,18 @@ function show_output(){
         document.getElementById("feng_typ5-4").style.fontSize = "0.8em";
         document.getElementById("finalresult").style.fontSize = "1.0em";
         document.getElementById("finalresult").style.width = "6em";
+        
+        
+        $("#nav_bid").html("Bidding.com");
+        $("#nav_map").html("Feng Shui map");
+        $("#nav_about").html("About us");
+        $("#nav-signin").html("Log in");
+        $("#nav_mem").html("Member center");
+        $("#nav_logout").html("Log out");
+        $("#fspoem").html("Feng Shui poem");
+        $("#nav_history").html("History list");
+        $("#clean").html("Clean");
+        document.getElementsByName("search")[0].placeholder="Find your home";
     }
     
     /*
@@ -696,9 +720,10 @@ function Translation() {
     $(".typ5-3").html("");
     $(".typ5-4").html("");
     $("#finalresult").html("");
-    document.getElementById("loader").style.display="";
     
     language=1-language;
     
     show_output();
 }
+
+
