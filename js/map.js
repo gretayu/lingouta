@@ -203,19 +203,71 @@ function get_output(output){
 function show_output(){
     document.getElementById("loader").style.display="none";
     if(language==0){
+        document.getElementById("feng_typ5-1").style.fontSize = "1.5em";
+        document.getElementById("feng_typ5-2").style.fontSize = "1.5em";
+        document.getElementById("feng_typ5-3").style.fontSize = "1.5em";
+        document.getElementById("feng_typ5-4").style.fontSize = "1.5em";
+        document.getElementById("feng_typ5-1").style.lineHeight = "1.5em";
+        document.getElementById("feng_typ5-2").style.lineHeight = "1.5em";
+        document.getElementById("feng_typ5-3").style.lineHeight = "1.5em";
+        document.getElementById("feng_typ5-4").style.lineHeight = "1.5em";
+        document.getElementById("feng_typ5-1").style.width = "16em";
+        document.getElementById("feng_typ5-2").style.width = "16em";
+        document.getElementById("feng_typ5-3").style.width = "16em";
+        document.getElementById("feng_typ5-4").style.width = "16em";
+        document.getElementById("feng_typ5-1").style.fontFamily = "'cwTeXFangSong', serif";
+        document.getElementById("feng_typ5-2").style.fontFamily = "'cwTeXFangSong', serif";
+        document.getElementById("feng_typ5-3").style.fontFamily = "'cwTeXFangSong', serif";
+        document.getElementById("feng_typ5-4").style.fontFamily = "'cwTeXFangSong', serif";
+        
+        
+        document.getElementById("finalresult").style.fontSize = "2.5em";
+        document.getElementById("finalresult").style.width = "3em";
+        document.getElementById("finalresult").style.top = "0em";
+        document.getElementById("finalresult").style.cssFloat = "";
+        document.getElementById("finalresult").style.textAlign = "";
+        const mq1 = window.matchMedia( "(max-width: 900px)" );
+        const mq2 = window.matchMedia( "(max-width: 645px)" );
+        if (mq1.matches){
+            document.getElementById("feng_typ5-1").style.fontSize = "1.2em";
+            document.getElementById("feng_typ5-2").style.fontSize = "1.2em";
+            document.getElementById("feng_typ5-3").style.fontSize = "1.2em";
+            document.getElementById("feng_typ5-4").style.fontSize = "1.2em";
+            document.getElementById("feng_typ5-1").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-2").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-3").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-4").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-1").style.width = "16em";
+            document.getElementById("feng_typ5-2").style.width = "16em";
+            document.getElementById("feng_typ5-3").style.width = "16em";
+            document.getElementById("feng_typ5-4").style.width = "16em";
+        }
+        if(mq2.matches){
+            document.getElementById("feng_typ5-1").style.fontSize = "1em";
+            document.getElementById("feng_typ5-2").style.fontSize = "1em";
+            document.getElementById("feng_typ5-3").style.fontSize = "1em";
+            document.getElementById("feng_typ5-4").style.fontSize = "1em";
+            document.getElementById("feng_typ5-1").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-2").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-3").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-4").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-1").style.width = "16em";
+            document.getElementById("feng_typ5-2").style.width = "16em";
+            document.getElementById("feng_typ5-3").style.width = "16em";
+            document.getElementById("feng_typ5-4").style.width = "16em";
+            
+            document.getElementById("finalresult").style.fontSize = "2em";
+            document.getElementById("finalresult").style.top = "-0.5em";
+            document.getElementById("finalresult").style.cssFloat = "right";
+            document.getElementById("finalresult").style.textAlign = "end";
+        }
+        
+        
         $("#feng_typ5-1").html(output_content[0][0]);
         $("#feng_typ5-2").html(output_content[0][1]);
         $("#feng_typ5-3").html(output_content[0][2]);
         $("#feng_typ5-4").html(output_content[0][3]);
         $("#finalresult").html(output_content[0][4]);
-        
-        document.getElementById("feng_typ5-1").style.fontSize = "1.5em";
-        document.getElementById("feng_typ5-2").style.fontSize = "1.5em";
-        document.getElementById("feng_typ5-3").style.fontSize = "1.5em";
-        document.getElementById("feng_typ5-4").style.fontSize = "1.5em";
-        document.getElementById("finalresult").style.fontSize = "2.5em";
-        document.getElementById("finalresult").style.width = "3em";
-        
         
         $("#nav_bid").html("競價網");
         $("#nav_map").html("風水地圖");
@@ -227,20 +279,67 @@ function show_output(){
         $("#nav_history").html("瀏覽紀錄");
         $("#clean").html("清除");
         document.getElementsByName("search")[0].placeholder="找寶位";
+        document.getElementById("or_logo").dataset.text = "或";
     }
     else{
+        document.getElementById("feng_typ5-1").style.fontSize = "1.2em";
+        document.getElementById("feng_typ5-2").style.fontSize = "1.2em";
+        document.getElementById("feng_typ5-3").style.fontSize = "1.2em";
+        document.getElementById("feng_typ5-4").style.fontSize = "1.2em";
+        document.getElementById("feng_typ5-1").style.width = "18em";
+        document.getElementById("feng_typ5-2").style.width = "18em";
+        document.getElementById("feng_typ5-3").style.width = "18em";
+        document.getElementById("feng_typ5-4").style.width = "18em";
+        document.getElementById("feng_typ5-1").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
+        document.getElementById("feng_typ5-2").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
+        document.getElementById("feng_typ5-3").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
+        document.getElementById("feng_typ5-4").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
+        
+        document.getElementById("finalresult").style.fontSize = "2em";
+        document.getElementById("finalresult").style.width = "4.5em";
+        document.getElementById("finalresult").style.top = "0em";
+        document.getElementById("finalresult").style.cssFloat = "";
+        document.getElementById("finalresult").style.textAlign = "";
+        const mq1 = window.matchMedia( "all and (max-width: 900px)" );
+        const mq2 = window.matchMedia( "all and (max-width: 645px)" );
+        if (mq1.matches){
+            document.getElementById("feng_typ5-1").style.fontSize = "1.1em";
+            document.getElementById("feng_typ5-2").style.fontSize = "1.1em";
+            document.getElementById("feng_typ5-3").style.fontSize = "1.1em";
+            document.getElementById("feng_typ5-4").style.fontSize = "1.1em";
+            document.getElementById("feng_typ5-1").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-2").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-3").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-4").style.lineHeight = "1.5em";
+            document.getElementById("feng_typ5-1").style.width = "16em";
+            document.getElementById("feng_typ5-2").style.width = "16em";
+            document.getElementById("feng_typ5-3").style.width = "16em";
+            document.getElementById("feng_typ5-4").style.width = "16em";
+        }
+        if(mq2.matches){
+            document.getElementById("feng_typ5-1").style.fontSize = "1em";
+            document.getElementById("feng_typ5-2").style.fontSize = "1em";
+            document.getElementById("feng_typ5-3").style.fontSize = "1em";
+            document.getElementById("feng_typ5-4").style.fontSize = "1em";
+            document.getElementById("feng_typ5-1").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-2").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-3").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-4").style.lineHeight = "1.2em";
+            document.getElementById("feng_typ5-1").style.width = "20em";
+            document.getElementById("feng_typ5-2").style.width = "20em";
+            document.getElementById("feng_typ5-3").style.width = "20em";
+            document.getElementById("feng_typ5-4").style.width = "20em";
+            
+            document.getElementById("finalresult").style.fontSize = "1.4em";
+            document.getElementById("finalresult").style.width = "4.5em";
+        }
+        
+        
         $("#feng_typ5-1").html(output_content[1][0]);
         $("#feng_typ5-2").html(output_content[1][1]);
         $("#feng_typ5-3").html(output_content[1][2]);
         $("#feng_typ5-4").html(output_content[1][3]);
         $("#finalresult").html(output_content[1][4]);
-        
-        document.getElementById("feng_typ5-1").style.fontSize = "0.8em";
-        document.getElementById("feng_typ5-2").style.fontSize = "0.8em";
-        document.getElementById("feng_typ5-3").style.fontSize = "0.8em";
-        document.getElementById("feng_typ5-4").style.fontSize = "0.8em";
-        document.getElementById("finalresult").style.fontSize = "1.0em";
-        document.getElementById("finalresult").style.width = "6em";
         
         
         $("#nav_bid").html("Bidding.com");
@@ -253,6 +352,7 @@ function show_output(){
         $("#nav_history").html("History list");
         $("#clean").html("Clean");
         document.getElementsByName("search")[0].placeholder="Find your home";
+        document.getElementById("or_logo").dataset.text = "Or";
     }
     
     /*
