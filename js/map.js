@@ -10,6 +10,10 @@ var empty = [[0,0,0],[0,0,0],[0,0,0]];
 var address;
 var language = 0;
 var output_content = [["","","","",""],["","","","",""]];
+var refreshp = 0;
+var section = 0;
+var letter = 0;
+var delay = 0;
 
 function initMap() {
     if (window.location.protocol == "http:") {
@@ -38,7 +42,7 @@ function initMap() {
             map.setZoom(13);
         }
         //call for the feng shui
-        console.log(e.latLng.lat()); 
+        //console.log(e.latLng.lat()); 
         var obj = {};
 		obj.latitude = e.latLng.lat();
         obj.longitude = e.latLng.lng();
@@ -53,6 +57,7 @@ function initMap() {
         $("#feng_typ5-3").removeClass("typ5-3");
         $("#feng_typ5-4").removeClass("typ5-4");
         $("#finalresult").removeClass("typ5-5");
+        refreshp=0;
         document.getElementById("loader").style.display="";
 
         data_get=0;
@@ -133,7 +138,7 @@ function analysis(temp_lat,temp_lng,renew_type){
             var output = JSON.parse(datas);
                 //output.content_1to4 -> the peom of the type of feng shui 
                 //output.content_5 -> the judgement of chosen place
-                console.log(output);
+                //console.log(output);
                 if(output.content!=""){
                     //更新map.html中的詩句顯示
                     get_output(output);
@@ -179,7 +184,7 @@ function analysis(temp_lat,temp_lng,renew_type){
                         addItem(historydata,result_type);
                     }
                     
-                    console.log("done!");
+                    //console.log("done!");
                     
                 }
             }
@@ -211,10 +216,6 @@ function show_output(){
         document.getElementById("feng_typ5-2").style.lineHeight = "1.5em";
         document.getElementById("feng_typ5-3").style.lineHeight = "1.5em";
         document.getElementById("feng_typ5-4").style.lineHeight = "1.5em";
-        document.getElementById("feng_typ5-1").style.width = "16em";
-        document.getElementById("feng_typ5-2").style.width = "16em";
-        document.getElementById("feng_typ5-3").style.width = "16em";
-        document.getElementById("feng_typ5-4").style.width = "16em";
         document.getElementById("feng_typ5-1").style.fontFamily = "'cwTeXFangSong', serif";
         document.getElementById("feng_typ5-2").style.fontFamily = "'cwTeXFangSong', serif";
         document.getElementById("feng_typ5-3").style.fontFamily = "'cwTeXFangSong', serif";
@@ -222,7 +223,7 @@ function show_output(){
         
         
         document.getElementById("finalresult").style.fontSize = "2.5em";
-        document.getElementById("finalresult").style.width = "3em";
+        document.getElementById("finalresult").style.lineHeight = "3em";
         document.getElementById("finalresult").style.top = "0em";
         document.getElementById("finalresult").style.cssFloat = "";
         document.getElementById("finalresult").style.textAlign = "";
@@ -233,14 +234,6 @@ function show_output(){
             document.getElementById("feng_typ5-2").style.fontSize = "1.2em";
             document.getElementById("feng_typ5-3").style.fontSize = "1.2em";
             document.getElementById("feng_typ5-4").style.fontSize = "1.2em";
-            document.getElementById("feng_typ5-1").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-2").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-3").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-4").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-1").style.width = "16em";
-            document.getElementById("feng_typ5-2").style.width = "16em";
-            document.getElementById("feng_typ5-3").style.width = "16em";
-            document.getElementById("feng_typ5-4").style.width = "16em";
         }
         if(mq2.matches){
             document.getElementById("feng_typ5-1").style.fontSize = "1em";
@@ -251,10 +244,6 @@ function show_output(){
             document.getElementById("feng_typ5-2").style.lineHeight = "1.2em";
             document.getElementById("feng_typ5-3").style.lineHeight = "1.2em";
             document.getElementById("feng_typ5-4").style.lineHeight = "1.2em";
-            document.getElementById("feng_typ5-1").style.width = "16em";
-            document.getElementById("feng_typ5-2").style.width = "16em";
-            document.getElementById("feng_typ5-3").style.width = "16em";
-            document.getElementById("feng_typ5-4").style.width = "16em";
             
             document.getElementById("finalresult").style.fontSize = "2em";
             document.getElementById("finalresult").style.top = "-0.5em";
@@ -262,19 +251,31 @@ function show_output(){
             document.getElementById("finalresult").style.textAlign = "end";
         }
         
-        
+        /*
         $("#feng_typ5-1").html(output_content[0][0]);
         $("#feng_typ5-2").html(output_content[0][1]);
         $("#feng_typ5-3").html(output_content[0][2]);
         $("#feng_typ5-4").html(output_content[0][3]);
         $("#finalresult").html(output_content[0][4]);
+        */
+        
+        delay=0;
+        section=0;
+        letter=0;
+        refreshp=1;
         
         $("#nav_bid").html("競價網");
+        document.getElementById("nav_bid").style.fontSize = "18px";
         $("#nav_map").html("風水地圖");
+        document.getElementById("nav_map").style.fontSize = "18px";
         $("#nav_about").html("關於我們");
+        document.getElementById("nav_about").style.fontSize = "18px";
         $("#nav-signin").html("登入");
+        document.getElementById("nav-signin").style.fontSize = "18px";
         $("#nav_mem").html("會員中心");
+        document.getElementById("nav_mem").style.fontSize = "18px";
         $("#nav_logout").html("登出");
+        document.getElementById("nav_logout").style.fontSize = "18px";
         $("#fspoem").html("風水詩句");
         $("#nav_history").html("瀏覽紀錄");
         $("#clean").html("清除");
@@ -286,17 +287,17 @@ function show_output(){
         document.getElementById("feng_typ5-2").style.fontSize = "1.2em";
         document.getElementById("feng_typ5-3").style.fontSize = "1.2em";
         document.getElementById("feng_typ5-4").style.fontSize = "1.2em";
-        document.getElementById("feng_typ5-1").style.width = "18em";
-        document.getElementById("feng_typ5-2").style.width = "18em";
-        document.getElementById("feng_typ5-3").style.width = "18em";
-        document.getElementById("feng_typ5-4").style.width = "18em";
+        document.getElementById("feng_typ5-1").style.lineHeight = "1.5em";
+        document.getElementById("feng_typ5-2").style.lineHeight = "1.5em";
+        document.getElementById("feng_typ5-3").style.lineHeight = "1.5em";
+        document.getElementById("feng_typ5-4").style.lineHeight = "1.5em";
         document.getElementById("feng_typ5-1").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
         document.getElementById("feng_typ5-2").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
         document.getElementById("feng_typ5-3").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
         document.getElementById("feng_typ5-4").style.fontFamily = "'Bellefair','PT Sans Narrow', sans-serif";
         
         document.getElementById("finalresult").style.fontSize = "2em";
-        document.getElementById("finalresult").style.width = "4.5em";
+        document.getElementById("finalresult").style.lineHeight = "3em";
         document.getElementById("finalresult").style.top = "0em";
         document.getElementById("finalresult").style.cssFloat = "";
         document.getElementById("finalresult").style.textAlign = "";
@@ -307,14 +308,6 @@ function show_output(){
             document.getElementById("feng_typ5-2").style.fontSize = "1.1em";
             document.getElementById("feng_typ5-3").style.fontSize = "1.1em";
             document.getElementById("feng_typ5-4").style.fontSize = "1.1em";
-            document.getElementById("feng_typ5-1").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-2").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-3").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-4").style.lineHeight = "1.5em";
-            document.getElementById("feng_typ5-1").style.width = "16em";
-            document.getElementById("feng_typ5-2").style.width = "16em";
-            document.getElementById("feng_typ5-3").style.width = "16em";
-            document.getElementById("feng_typ5-4").style.width = "16em";
         }
         if(mq2.matches){
             document.getElementById("feng_typ5-1").style.fontSize = "1em";
@@ -325,29 +318,35 @@ function show_output(){
             document.getElementById("feng_typ5-2").style.lineHeight = "1.2em";
             document.getElementById("feng_typ5-3").style.lineHeight = "1.2em";
             document.getElementById("feng_typ5-4").style.lineHeight = "1.2em";
-            document.getElementById("feng_typ5-1").style.width = "20em";
-            document.getElementById("feng_typ5-2").style.width = "20em";
-            document.getElementById("feng_typ5-3").style.width = "20em";
-            document.getElementById("feng_typ5-4").style.width = "20em";
             
             document.getElementById("finalresult").style.fontSize = "1.4em";
-            document.getElementById("finalresult").style.width = "4.5em";
         }
         
-        
+        /*
         $("#feng_typ5-1").html(output_content[1][0]);
         $("#feng_typ5-2").html(output_content[1][1]);
         $("#feng_typ5-3").html(output_content[1][2]);
         $("#feng_typ5-4").html(output_content[1][3]);
         $("#finalresult").html(output_content[1][4]);
+        */
         
+        delay=0;
+        section=0;
+        letter=0;
+        refreshp=1;
         
         $("#nav_bid").html("Bidding.com");
+        document.getElementById("nav_bid").style.fontSize = "16px";
         $("#nav_map").html("Feng Shui map");
+        document.getElementById("nav_map").style.fontSize = "16px";
         $("#nav_about").html("About us");
+        document.getElementById("nav_about").style.fontSize = "16px";
         $("#nav-signin").html("Log in");
+        document.getElementById("nav-signin").style.fontSize = "16px";
         $("#nav_mem").html("Member center");
+        document.getElementById("nav_mem").style.fontSize = "16px";
         $("#nav_logout").html("Log out");
+        document.getElementById("nav_logout").style.fontSize = "16px";
         $("#fspoem").html("Feng Shui poem");
         $("#nav_history").html("History list");
         $("#clean").html("Clean");
@@ -466,6 +465,7 @@ $(document).ready(function () {
                         $(".typ5-4").html("");
                         $("#finalresult").html("");
                         document.getElementById("loader").style.display="";
+                        refreshp=0;
                         //alert("try2");
                         
                         data_get=0;
@@ -481,37 +481,8 @@ $(document).ready(function () {
                         }
 					    
                         /*
-                        $.ajax({
-                            method: "post",
-                            url: "connect_feng_shui.php",
-                            data: {
-                                lat:results[0].geometry.location.lat(),
-                                lng:results[0].geometry.location.lng()
-                              
-                              
-                            },
-                            success: function(datas) {
-                            var output = JSON.parse(datas);
-                                //output.content_1to4 -> the peom of the type of feng shui 
-                                //output.content_5 -> the judgement of chosen place
-                                console.log(output);
-                                if(output.content!=""){
-                                    //更新map.html中的詩句顯示
-                                    $(".typ5-1").html(output.content_1);
-                                    $(".typ5-2").html(output.content_2);
-                                    $(".typ5-3").html(output.content_3);
-                                    $(".typ5-4").html(output.content_4);
-                                    $("#finalresult").html(output.content_5);
-
-                                    result_type = "---> " + output.content_5;
-                                    var addr = new Array();
-                                    addr = address.split(",");
-                                    address="("+addr[0]+", "+addr[1]+")";
-                                    //add to the history list 
-                                    addItem(address,result_type);
-                                }
-                            }
-                        })*/
+                        ajax
+                        */
                     } else {
                         //alert('Not found!');
                         $(".typ5-1").html("Not found...");
@@ -520,6 +491,7 @@ $(document).ready(function () {
                         $(".typ5-4").html("");
                         $("#finalresult").html("");
                         document.getElementById("loader").style.display="none";
+                        refreshp=0;
                     }
                 });
                 
@@ -580,6 +552,7 @@ $(document).ready(function () {
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
                 document.getElementById("loader").style.display="";
+                refreshp=0;
                 //alert("try2");
             
                 data_get=0;
@@ -594,34 +567,9 @@ $(document).ready(function () {
                     fsearching(temp_lat,temp_lng,surrounding,3);
                 }
             
-                /*$.ajax({
-                    method: "post",
-                    url: "connect_feng_shui.php",
-                    data: {
-                        lat:results[0].geometry.location.lat(),
-                        lng:results[0].geometry.location.lng()
-                      
-                      
-                    },
-                    success: function(datas) {
-                    var output = JSON.parse(datas);
-                        //output.content_1to4 -> the peom of the type of feng shui 
-                        //output.content_5 -> the judgement of chosen place
-                        console.log(output);
-                        if(output.content!=""){
-                            //更新map.html中的詩句顯示
-                            $(".typ5-1").html(output.content_1);
-                            $(".typ5-2").html(output.content_2);
-                            $(".typ5-3").html(output.content_3);
-                            $(".typ5-4").html(output.content_4);
-                            $("#finalresult").html(output.content_5);
-
-                            result_type = "---> " + output.content_5;
-                            //add to the history list 
-                            addItem(address,result_type);
-                        }
-                    }
-                })*/
+                /*
+                ajax
+                */
             } else {
                 ///alert('Not found!');
                 $(".typ5-1").html("Not found...");
@@ -630,6 +578,7 @@ $(document).ready(function () {
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
                 document.getElementById("loader").style.display="none";
+                refreshp=0;
             }
         });
     })
@@ -677,9 +626,7 @@ function addItem(e,f) {
         }
         
         //console.log("type="+research_type);
-        
         //alert(research);
-        
         
         //get the input
         var address = research;
@@ -721,6 +668,7 @@ function addItem(e,f) {
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
                 document.getElementById("loader").style.display="";
+                refreshp=0;
                 //alert("try2");
             
             
@@ -736,39 +684,9 @@ function addItem(e,f) {
                     fsearching(temp_lat,temp_lng,surrounding,4);
                 }
                 
-                /*$.ajax({
-                    method: "post",
-                    url: "connect_feng_shui.php",
-                    data: {
-                        lat:results[0].geometry.location.lat(),
-                        lng:results[0].geometry.location.lng()
-                      
-                      
-                    },
-                    success: function(datas) {
-                    var output = JSON.parse(datas);
-                        //output.content_1to4 -> the peom of the type of feng shui 
-                        //output.content_5 -> the judgement of chosen place
-                        console.log(output);
-                        if(output.content!=""){
-                            //更新map.html中的詩句顯示
-                            $(".typ5-1").html(output.content_1);
-                            $(".typ5-2").html(output.content_2);
-                            $(".typ5-3").html(output.content_3);
-                            $(".typ5-4").html(output.content_4);
-                            $("#finalresult").html(output.content_5);
-
-                            result_type = "---> " + output.content_5;
-                            var addr = new Array();
-                            addr = address.split(",");
-                            if(research_type==1){
-                                address="("+addr[0]+", "+addr[1]+")";
-                            }
-                            //add to the history list 
-                            addItem(address,result_type);
-                        }
-                    }
-                })*/
+                /*
+                ajax
+                */
             } else {
                 //alert('Not found!');
                 $(".typ5-1").html("Not found...");
@@ -777,6 +695,7 @@ function addItem(e,f) {
                 $(".typ5-4").html("");
                 $("#finalresult").html("");
                 document.getElementById("loader").style.display="none";
+                refreshp=0;
             }
         });
         
@@ -792,6 +711,10 @@ function addItem(e,f) {
 
 <!--handling the event of cleaning the history>
 $(document).ready(function () {
+    var refreshingp = setInterval(function(){
+        Refreshing();
+    }, 30);
+    
     $("#clean").click(function () {
         //when the 'clean' buttom is pressed
         DeleteMarkers(); //call the function too clean the markers
@@ -803,6 +726,44 @@ $(document).ready(function () {
 
 })
 <!--end of the enent of cleaning the history>
+
+function Refreshing() {
+    if(refreshp==1){
+        if(language==0 && delay<=1){
+            delay++;
+        }
+        else if(delay>=0){
+            delay=0;
+            if(section>=0 && section<=3){
+                if(letter<=output_content[language][section].length){
+                    $("#feng_typ5-"+(section+1)).html(output_content[language][section].substring(0,letter));
+                    letter++;
+                }
+                else{
+                    section++;
+                    letter=0;
+                    delay=-6;
+                }
+            }
+            else if(section==4){
+                if(letter<=output_content[language][4].length){
+                    $("#finalresult").html(output_content[language][4].substring(0,letter));
+                    letter++;
+                }
+                else{
+                    section=0;
+                    letter=0;
+                    refreshp=0;
+                }
+            }
+        }
+        else{
+            delay++;
+        }
+        
+        
+    }
+}
 
 function DeleteMarkers() {
     //Loop through all the markers and remove   
@@ -820,6 +781,7 @@ function Translation() {
     $(".typ5-3").html("");
     $(".typ5-4").html("");
     $("#finalresult").html("");
+    refreshingp=0;
     
     language=1-language;
     
