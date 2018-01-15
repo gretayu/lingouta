@@ -711,6 +711,8 @@ function addItem(e,f) {
 
 <!--handling the event of cleaning the history>
 $(document).ready(function () {
+	InitialContent();
+	
     var refreshingp = setInterval(function(){
         Refreshing();
     }, 30);
@@ -726,6 +728,22 @@ $(document).ready(function () {
 
 })
 <!--end of the enent of cleaning the history>
+
+function InitialContent() {
+    output_content[0][0]="生命誠可貴，";
+    output_content[0][1]="塔位價更高；";
+    output_content[0][2]="若為尊嚴故，";
+    output_content[0][3]="生前皆可標。";
+    output_content[0][4]=" ";
+    output_content[1][0]="Life is priceless,";
+    output_content[1][1]="the afterlife is even pricier.";
+    output_content[1][2]="For the sake of dignity,";
+    output_content[1][3]="it is worth sacrificing both.";
+    output_content[1][4]=" ";
+	
+	show_output();
+}
+
 
 function Refreshing() {
     if(refreshp==1){
